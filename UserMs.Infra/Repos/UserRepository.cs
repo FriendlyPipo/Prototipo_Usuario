@@ -10,7 +10,8 @@ namespace UserMs.Infra.Repos
     {
         private readonly UserDbContext _dbContext;
 
-        public UserRepository(UserDbContext dbContext){
+        public UserRepository(UserDbContext dbContext)
+        {
             _dbContext = dbContext;
         }
 
@@ -24,12 +25,14 @@ namespace UserMs.Infra.Repos
             return await _dbContext.Users.ToListAsync();
         }
 
-        public async Task  CreateAsync(User user){
+        public async Task  CreateAsync(User user)
+        {
             _dbContext.Users.Add(user);
             await _dbContext.SaveChangesAsync();
         }
 
-        public async Task DeleteAsync (Guid userId){
+        public async Task DeleteAsync (Guid userId)
+        {
             var user = await _dbContext.Users.FindAsync(userId);
                 if (user != null)
                 {
@@ -38,7 +41,8 @@ namespace UserMs.Infra.Repos
                 }
         } 
 
-        public async Task UpdateAsync (User user){
+        public async Task UpdateAsync (User user)
+        {
             _dbContext.Users.Update(user);
             await _dbContext.SaveChangesAsync();
         }

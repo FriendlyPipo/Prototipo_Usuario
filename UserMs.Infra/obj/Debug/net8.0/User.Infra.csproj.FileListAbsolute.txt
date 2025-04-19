@@ -18,3 +18,4 @@ C:\Prueba_Vscode\UserMs.Infra\obj\Debug\net8.0\User.Infra.dll
 C:\Prueba_Vscode\UserMs.Infra\obj\Debug\net8.0\refint\User.Infra.dll
 C:\Prueba_Vscode\UserMs.Infra\obj\Debug\net8.0\User.Infra.pdb
 C:\Prueba_Vscode\UserMs.Infra\obj\Debug\net8.0\ref\User.Infra.dll
+C:\Prueba_Vscode\UserMs.Infra\obj\Debug\net8.0\User.Infra.sourcelink.json

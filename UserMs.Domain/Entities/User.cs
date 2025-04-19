@@ -1,15 +1,15 @@
 namespace UserMs.Domain.Entities{
 
     public class User {
-        public Guid UserId { get; set; }    
-        public string UserNombre { get; set; } 
-        public string UserApellido { get; set; }
-        public string UserCorreo { get; set; }   
-        public string UserTelefono { get; set; }
-        public string UserDireccion { get; set; }
-        public DateTime createdAt { get; set; }
-
-               public User(string UserNombre, string UserApellido, string UserCorreo, string UserTelefono, string UserDireccion)
+        public Guid UserId { get; private set; }    
+        public string UserNombre { get; private set; } 
+        public string UserApellido { get; private set; }
+        public string UserCorreo { get; private set; }   
+        public string UserTelefono { get; private set; }
+        public string UserDireccion { get; private set; }
+        public DateTime createdAt { get; private set; }
+        public bool UserConfirmacion { get; private set; }
+    public User(string UserNombre, string UserApellido, string UserCorreo, string UserTelefono, string UserDireccion)
         {
             UserId = Guid.NewGuid();
             this.UserNombre = UserNombre;
@@ -17,10 +17,8 @@ namespace UserMs.Domain.Entities{
             this.UserCorreo = UserCorreo;
             this.UserTelefono = UserTelefono;
             this.UserDireccion = UserDireccion;
+            this.UserConfirmacion = false;
+            this.createdAt = DateTime.UtcNow;
         }
-
     }
-
-
-
 }
