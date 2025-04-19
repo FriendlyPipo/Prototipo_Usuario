@@ -1,0 +1,17 @@
+C:\Prueba_Vscode\User.Domain\obj\Debug\net8.0\User.Domain.csproj.AssemblyReference.cache
+C:\Prueba_Vscode\User.Domain\obj\Debug\net8.0\User.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Prueba_Vscode\User.Domain\obj\Debug\net8.0\User.Domain.AssemblyInfoInputs.cache
+C:\Prueba_Vscode\User.Domain\obj\Debug\net8.0\User.Domain.AssemblyInfo.cs
+C:\Prueba_Vscode\User.Domain\obj\Debug\net8.0\User.Domain.csproj.CoreCompileInputs.cache
+C:\Prueba_Vscode\UserMs.Domain\obj\Debug\net8.0\User.Domain.csproj.AssemblyReference.cache
+C:\Prueba_Vscode\UserMs.Domain\obj\Debug\net8.0\User.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Prueba_Vscode\UserMs.Domain\obj\Debug\net8.0\User.Domain.AssemblyInfoInputs.cache
+C:\Prueba_Vscode\UserMs.Domain\obj\Debug\net8.0\User.Domain.AssemblyInfo.cs
+C:\Prueba_Vscode\UserMs.Domain\obj\Debug\net8.0\User.Domain.csproj.CoreCompileInputs.cache
+C:\Prueba_Vscode\UserMs.Domain\bin\Debug\net8.0\User.Domain.deps.json
+C:\Prueba_Vscode\UserMs.Domain\bin\Debug\net8.0\User.Domain.dll
+C:\Prueba_Vscode\UserMs.Domain\bin\Debug\net8.0\User.Domain.pdb
+C:\Prueba_Vscode\UserMs.Domain\obj\Debug\net8.0\User.Domain.dll
+C:\Prueba_Vscode\UserMs.Domain\obj\Debug\net8.0\refint\User.Domain.dll
+C:\Prueba_Vscode\UserMs.Domain\obj\Debug\net8.0\User.Domain.pdb
+C:\Prueba_Vscode\UserMs.Domain\obj\Debug\net8.0\ref\User.Domain.dll
