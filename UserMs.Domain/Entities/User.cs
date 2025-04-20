@@ -1,5 +1,4 @@
 namespace UserMs.Domain.Entities{
-
     public class User {
         public Guid UserId { get; private set; }    
         public string UserNombre { get; private set; } 
@@ -9,6 +8,8 @@ namespace UserMs.Domain.Entities{
         public string UserDireccion { get; private set; }
         public DateTime createdAt { get; private set; }
         public bool UserConfirmacion { get; private set; }
+
+        public string UserPassword { get; private set; }
     public User(string UserNombre, string UserApellido, string UserCorreo, string UserTelefono, string UserDireccion)
         {
             UserId = Guid.NewGuid();

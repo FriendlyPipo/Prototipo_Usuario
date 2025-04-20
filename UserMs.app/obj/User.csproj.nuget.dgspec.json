@@ -50,6 +50,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Masstransit": {
+              "target": "Package",
+              "version": "[8.4.0, )"
+            },
             "MediatR": {
               "target": "Package",
               "version": "[12.5.0, )"

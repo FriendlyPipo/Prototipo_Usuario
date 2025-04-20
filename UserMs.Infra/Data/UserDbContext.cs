@@ -2,14 +2,12 @@ using Microsoft.EntityFrameworkCore;
 using UserMs.Domain.Entities;
 
 
-namespace UserMs.Infra.Data 
+namespace UserMs.Infra.Data
 {
     public class UserDbContext : DbContext
     {
          public UserDbContext(DbContextOptions<UserDbContext> options)
-            : base(options)
-        {
-        }
+            : base(options){}
         public DbSet<User> Users { get;set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

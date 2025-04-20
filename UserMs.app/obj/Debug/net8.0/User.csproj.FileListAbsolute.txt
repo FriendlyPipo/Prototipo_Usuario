@@ -60,3 +60,5 @@ C:\Prueba_Vscode\UserMs.app\obj\Debug\net8.0\ref\User.dll
 C:\Prueba_Vscode\UserMs.app\obj\Debug\net8.0\User.sourcelink.json
 C:\Prueba_Vscode\UserMs.app\bin\Debug\net8.0\MediatR.dll
 C:\Prueba_Vscode\UserMs.app\bin\Debug\net8.0\MediatR.Contracts.dll
+C:\Prueba_Vscode\UserMs.app\bin\Debug\net8.0\MassTransit.dll
+C:\Prueba_Vscode\UserMs.app\bin\Debug\net8.0\MassTransit.Abstractions.dll
