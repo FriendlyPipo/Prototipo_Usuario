@@ -1,6 +1,6 @@
-using Microsoft.EntityFrameworkCore;
+using EntityFramework.Exceptions.PostgreSQL;   
+using Microsoft.EntityFrameworkCore; 
 using UserMs.Domain.Entities;
-
 
 namespace UserMs.Infra.Data
 {
@@ -20,7 +20,8 @@ namespace UserMs.Infra.Data
                 entity.Property(u => u.UserCorreo).IsRequired().HasMaxLength(50);
                 entity.Property(u => u.UserTelefono).IsRequired().HasMaxLength(25);
                 entity.Property(u => u.UserDireccion).IsRequired().HasMaxLength(200);
-                entity.Property(u => u.createdAt);
+                entity.Property(u => u.createdAt).IsRequired();
+                entity.Property(u => u.UserRol).IsRequired();
             }); 
         } 
     }

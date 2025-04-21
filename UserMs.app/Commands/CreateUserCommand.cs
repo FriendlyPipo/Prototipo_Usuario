@@ -6,11 +6,11 @@ namespace UserMs.app.Commands
 {
     public class CreateUserCommand : IRequest<Guid>   
     {
-        public CreateUserDTO User { get; set; }
+        public CreateUserDTO Users { get; set; }
 
         public CreateUserCommand(CreateUserDTO user)
         {
-            User = user;
+            Users = user;
         }
     }
 }
