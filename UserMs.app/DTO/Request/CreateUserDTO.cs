@@ -11,4 +11,4 @@ namespace UserMs.app.DTO.Request
         public required string UserRol { get; set; }
         public required string UserPassword { get; set; } = string.Empty;
     }
-}
+}   
