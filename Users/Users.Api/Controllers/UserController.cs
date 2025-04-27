@@ -1,7 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Users.Application.DTO.Request;
-using Users.Application.DTO.Response;
+using Users.Application.DTO.Respond;
 using Users.Application.Queries;
+using Users.Application.Commands;
 using MediatR;
 
 namespace UserMs.Api.Controllers
@@ -17,17 +18,19 @@ namespace UserMs.Api.Controllers
             _mediator = mediator;
         }
 
-       [HttpPost]
-       public async Task<IActionResult> CreateUser(CreateUserDTO createUserDTO)
-        try
+        [HttpPost("CreateUser")]
+        public async Task<IActionResult> CreateUser(CreateUserDTO createUserDTO)
+        {
+            try
             {
                 var command = new CreateUserCommand(createUserDTO);
                 var userId = await _mediator.Send(command);
                 return Ok(userId);
             }
-        catch (Exception e)
+            catch (Exception e)
             {
                 return BadRequest(e.Message);
             }
         }
+    }
 }
