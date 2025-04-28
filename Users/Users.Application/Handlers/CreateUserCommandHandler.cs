@@ -8,14 +8,14 @@ using Users.Domain.Interfaces;
 using Users.Infrastructure.Exceptions;
 using Users.Infrastructure.Interfaces;
 using Users.Application.UserValidations;
-using Users.Application.DTO.Request; // Asegúrate de tener este using
+using Users.Application.DTO.Request; 
 
 namespace Users.Application.Handlers
 {
     public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Guid>
     {
         private readonly IUserRepository _userRepository;
-        private readonly UserDbContext _dbContext; // Necesitas acceder al DbContext para guardar el rol
+        private readonly UserDbContext _dbContext;
 
         public CreateUserCommandHandler(IUserRepository userRepository, UserDbContext dbContext /*, IAuthService authService*/)
         {

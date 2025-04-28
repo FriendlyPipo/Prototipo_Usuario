@@ -8,7 +8,7 @@ using MediatR;
 namespace UserMs.Api.Controllers
 {
     [ApiController]
-    [Route("api/users")]
+    [Route("users")]
     public class UserController : ControllerBase
     {
         private readonly IMediator _mediator;
