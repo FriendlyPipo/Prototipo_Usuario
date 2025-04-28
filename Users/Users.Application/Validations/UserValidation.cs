@@ -8,13 +8,13 @@ namespace Users.Application.UserValidations
     {
         public UserValidation()
         {
-            RuleFor(x => x.UserName)
-                .NotEmpty().WithMessage("El nombre es requerido.")
-                .Length(50).WithMessage("El nombre no puede exceder 50 caracteres.");
+                RuleFor(x => x.UserName)
+                    .NotEmpty().WithMessage("El nombre es requerido.")
+                    .Length(3,50).WithMessage("El nombre no puede exceder 50 caracteres.");
 
             RuleFor(x => x.UserLastName)
                 .NotEmpty().WithMessage("El apellido es requerido.")
-                .Length(50).WithMessage("El apellido no puede exceder 50 caracteres.");
+                .Length(3,50).WithMessage("El apellido no puede exceder 50 caracteres.");
 
             RuleFor(x => x.UserEmail)
                 .NotEmpty().WithMessage("El correo es requerido.")
@@ -28,9 +28,9 @@ namespace Users.Application.UserValidations
                 .NotEmpty().WithMessage("La dirección es requerida.")
                 .Length(5, 100).WithMessage("La dirección debe tener entre 5 y 100 caracteres.");
 
-            RuleFor(x => x.UserRol)
+            RuleFor(x => x.UserRole)
                 .NotEmpty().WithMessage("El rol es requerido.")
-                .Must(rol => rol == "Postor" || rol == "Subastador");
+                .Must(role => role == "Postor" || role == "Subastador");
         }
          public virtual async Task<bool> ValidateRequest(CreateUserDTO request)
         {

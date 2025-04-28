@@ -1,20 +1,27 @@
 namespace Users.Domain.Entities
 {
-  public class UserRole
+    public enum UserRoleName
     {
-        public int RoleId { get; private set; }
-        public string RoleName { get; private set; }
+        Administrador,
+        Soporte,
+        Postor,
+        Subastador
+    }
 
-        public ICollection<User> Users { get; set; }
+    public class UserRole
+    {
+        public Guid RoleId { get; private set; }
+        public UserRoleName RoleName { get; private set; }
 
-        public UserRole(string RoleName)
+        public Guid UserId { get; set; }
+
+        public User User { get; set; }
+
+        public UserRole(UserRoleName roleName)
         {
-            this.RoleName = RoleName;
+            this.RoleName = roleName;
         }
 
-        public UserRole()
-        {
-            Users = new List<User>();
-        }
+        public UserRole() { }
     }
 }

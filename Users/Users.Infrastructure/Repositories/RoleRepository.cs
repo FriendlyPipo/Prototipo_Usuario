@@ -16,7 +16,7 @@ namespace Users.Infrastructure.Repositories
 
         public async Task<UserRole> GetRoleByNameAsync(string roleName)
         {
-            return await _dbcontext.Role.FirstOrDefaultAsync(r => r.RoleName == roleName);
+            return await _dbcontext.Role.FirstOrDefaultAsync(r => r.RoleName.ToString() == roleName);
         }
 
         public async Task<IEnumerable<UserRole>> GetAllRolesAsync()

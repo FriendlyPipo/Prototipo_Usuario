@@ -5,7 +5,6 @@ using Users.Infrastructure.Data;
 
 namespace Users.Infrastructure.Repositories
 {
-
     public class UserRepository : IUserRepository
     {
         private readonly UserDbContext _dbContext;
@@ -15,35 +14,42 @@ namespace Users.Infrastructure.Repositories
             _dbContext = dbContext;
         }
 
-           public async Task<User?> GetByIdAsync(Guid userId)
+        public async Task<User?> GetByIdAsync(Guid userId)
         {
-            return await _dbContext.Users.FindAsync(userId);
+            return await _dbContext.User.FindAsync(userId);
         }
 
-          public async Task<IEnumerable<User>> GetAllAsync()
+        public async Task<User?> GetByIdWithRoleAsync(Guid userId)
         {
-            return await _dbContext.Users.ToListAsync();
+        return await _dbContext.User
+        .Include(u => u.UserRoles)
+        .FirstOrDefaultAsync(u => u.UserId == userId);
         }
 
-        public async Task  CreateAsync(User user)
+        public async Task<IEnumerable<User>> GetAllAsync()
         {
-            _dbContext.Users.Add(user);
+            return await _dbContext.User.ToListAsync();
+        }
+
+        public async Task CreateAsync(User user)
+        {
+            _dbContext.User.Add(user);
             await _dbContext.SaveChangesAsync();
         }
 
-        public async Task DeleteAsync (Guid userId)
+        public async Task DeleteAsync(Guid userId)
         {
-            var user = await _dbContext.Users.FindAsync(userId);
-                if (user != null)
-                {
-                _dbContext.Users.Remove(user);
+            var user = await _dbContext.User.FindAsync(userId);
+            if (user != null)
+            {
+                _dbContext.User.Remove(user);
                 await _dbContext.SaveChangesAsync();
-                }
-        } 
+            }
+        }
 
-        public async Task UpdateAsync (User user)
+        public async Task UpdateAsync(User user)
         {
-            _dbContext.Users.Update(user);
+            _dbContext.User.Update(user);
             await _dbContext.SaveChangesAsync();
         }
     }

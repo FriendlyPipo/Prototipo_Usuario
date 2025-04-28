@@ -9,6 +9,7 @@ namespace Users.Domain.Interfaces
         Task UpdateAsync(User user); // Actualiza datos de usuario
         Task CreateAsync (User user); // Crea usuario
         Task DeleteAsync (Guid userId); // Borra usuario
+        Task<User?> GetByIdWithRoleAsync(Guid userId);
     }
 
     

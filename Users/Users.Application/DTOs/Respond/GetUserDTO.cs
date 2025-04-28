@@ -8,6 +8,6 @@ namespace Users.Application.DTO.Respond
         public string? UserEmail { get; init; }
         public string? UserPhoneNumber { get; init; }
         public string? UserDirection { get; init; }
-        public string? UserRol { get; init; } // Devolvemos el rol como string para la respuesta
+        public string? UserRole { get; init; } // Devolvemos el rol como string para la respuesta
     }
 }
