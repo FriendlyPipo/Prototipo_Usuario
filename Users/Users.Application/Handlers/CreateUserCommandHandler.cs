@@ -62,10 +62,10 @@ namespace Users.Application.Handlers
 
                 return newUser.UserId;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
-            }
+            }   
         }
     }
 }
