@@ -1,5 +1,5 @@
 using Users.Application.Queries;
-using Users.Domain.Interfaces;
+using Users.Core.Repositories;
 using Users.Application.DTO.Respond;
 using Users.Infrastructure.Exceptions;
 using MediatR;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
 using Users.Domain.Entities;
-using Users.Infrastructure.Data;
+using Users.Infrastructure.Database;
 
 
 namespace Users.Infrastructure.Interfaces

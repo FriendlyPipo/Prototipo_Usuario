@@ -8,8 +8,11 @@ namespace Users.Domain.Entities
         public string UserEmail { get; private set; }
         public string UserPhoneNumber { get; private set; }
         public string UserDirection { get; private set; }
-        public DateTime createdAt { get; private set; }
-        public bool UserConfirmation { get; private set; }
+        public DateTime CreatedAt { get; set; }
+        public string? CreatedBy { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+        public string? UpdatedBy { get; set; }
+        public bool UserConfirmation { get; private set; }   
         public string UserPassword { get; private set; }
         public ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
 
@@ -23,7 +26,7 @@ namespace Users.Domain.Entities
             this.UserDirection = UserDirection;
             this.UserPassword = UserPassword;
             this.UserConfirmation = false;
-            this.createdAt = DateTime.UtcNow;
+            this.CreatedAt = DateTime.UtcNow;
         }
     }
 }

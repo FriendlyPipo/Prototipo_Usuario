@@ -10,5 +10,6 @@ namespace Users.Application.DTO.Request
         public required string UserDirection { get; set; }
         public required string UserRole { get; set; }
         public required string UserPassword { get; set; } = string.Empty;
+        public required bool UserConfirmation { get; set; }
     }
 }   
