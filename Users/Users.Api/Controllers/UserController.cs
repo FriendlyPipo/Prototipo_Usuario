@@ -4,8 +4,9 @@ using Users.Application.DTO.Respond;
 using Users.Application.Queries;
 using Users.Application.Commands;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 
-namespace UserMs.Api.Controllers
+namespace Users.Api.Controllers
 {
     [ApiController]
     [Route("users")]
@@ -19,6 +20,7 @@ namespace UserMs.Api.Controllers
         }
 
         [HttpPost("CreateUser")]
+        [Authorize] 
         public async Task<IActionResult> CreateUser(CreateUserDTO createUserDTO)
         {
             try

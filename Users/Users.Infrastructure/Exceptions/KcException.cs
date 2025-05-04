@@ -1,4 +1,4 @@
-namespace KcAuthentication.Common.Exceptions
+namespace Users.Infrastructure.Exceptions
 {
     public class KeycloakException : Exception
     {

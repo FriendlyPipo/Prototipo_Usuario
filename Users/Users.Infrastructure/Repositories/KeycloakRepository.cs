@@ -4,12 +4,12 @@
     using System.Text;
     using System.Text.Json;
     using System.Threading.Tasks;
-    using KcAuthentication.Common.Dtos;
-    using KcAuthentication.Core.Interfaces;
-    using KcAuthentication.Common.Exceptions;
+    using Users.Core.DTO;
+    using Users.Core.Repositories;
+    using Users.Infrastructure.Exceptions;
     using Microsoft.Extensions.Configuration;
 
-    namespace KcAuthentication.Infrastructure.Repositories
+    namespace Users.Infrastructure.Repositories
     {
         public class KeycloakRepository : IKeycloakRepository
         {
@@ -26,7 +26,7 @@
 
             public async Task<string> GetTokenAsync()
             {
-                var tokenUrl = $"{_configuration["Keycloak:BaseUrl"]}/protocol/openid-connect/token";
+                var tokenUrl = $"{_configuration["Keycloak:BaseUrl"]}/realms/Artened/protocol/openid-connect/token";
                 var clientId = _configuration.GetValue<string>("Keycloak:ClientId") ?? throw new KeyNotFoundException("Configuration 'Keycloak:ClientId' is missing.");
                 var clientSecret = _configuration.GetValue<string>("Keycloak:ClientSecret") ?? throw new KeyNotFoundException("Configuration 'Keycloak:ClientSecret' is missing.");
 
@@ -47,14 +47,14 @@
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    var tokenResponse = JsonSerializer.Deserialize<TokenDto>(content);
+                    var tokenResponse = JsonSerializer.Deserialize<KcTokenDTO>(content);
                     return tokenResponse?.AuthenticationToken ?? string.Empty;
                 }
 
                 throw new KeycloakException("Failed to retrieve token from Keycloak.");
             } 
 
-            public async Task<string> CreateUserAsync(CreateUserDto user, string token)
+            public async Task<string> CreateUserAsync(KcCreateUserDTO user, string token)
             {
                 var url = $"{_configuration["Keycloak:BaseUrl"]}/admin/realms/{_configuration["Keycloak:Realm"]}/users";
                 var requestBody = new StringContent(JsonSerializer.Serialize(user), Encoding.UTF8, "application/json");
@@ -76,10 +76,10 @@
                 throw new KeycloakException("Failed to create user in Keycloak.");
             }
 
-            public async Task AssignRoleToUserAsync(string email, string token)
+            public async Task AssignRoleToUserAsync(string keycloakUserId, string role, string token)
             {
-                var url = $"{_configuration["Keycloak:BaseUrl"]}/admin/realms/{_configuration["Keycloak:Realm"]}/users/{email}/role-mappings/realm";
-                var requestBody = new StringContent(JsonSerializer.Serialize(new { name = "user" }), Encoding.UTF8, "application/json");
+                var url = $"{_configuration["Keycloak:BaseUrl"]}/admin/realms/{_configuration["Keycloak:Realm"]}/users/{keycloakUserId}/role-mappings/realm";
+                var requestBody = new StringContent(JsonSerializer.Serialize(new[] { new { name = role } }), Encoding.UTF8, "application/json");
 
                 using var request = new HttpRequestMessage(HttpMethod.Post, url)
                 {
@@ -92,8 +92,8 @@
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw new KeycloakException("Failed to assign role to user in Keycloak.");
-                }  
+                    throw new KeycloakException($"Failed to assign role '{role}' to user with ID '{keycloakUserId}' in Keycloak. Status code: {response.StatusCode}");
+                }
             }
         }
     }

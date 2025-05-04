@@ -1,12 +1,12 @@
-using KcAuthentication.Common.Dtos;
+using Users.Core.DTO;
 
-namespace KcAuthentication.Core.Interfaces
+namespace Users.Core.Repositories
 {
     public interface IKeycloakRepository
     {
         Task<string> GetTokenAsync();
-        Task<string> CreateUserAsync(CreateUserDto user,string token);   
-        Task AssignRoleToUserAsync(string email,string token);
+        Task<string> CreateUserAsync(KcCreateUserDTO user,string token);   
+        Task AssignRoleToUserAsync(string keycloakUserId, string role, string token);
 
         /* Para los otros casos de uso
          Task<string> DeleteUserAsync(Guid userId);

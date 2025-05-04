@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace KcAuthentication.Common.Dtos
+namespace Users.Core.DTO
 {
-    public class TokenDto
+    public class KcTokenDTO
     {
         public string RefreshToken { get; set; } = String.Empty;
         public string AuthenticationToken { get; set; } = String.Empty;
