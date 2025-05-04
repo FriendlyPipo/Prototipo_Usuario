@@ -48,10 +48,6 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-
-
-
-
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer( options =>
     {
@@ -121,7 +117,6 @@ builder.Services.AddScoped<IKeycloakRepository, KeycloakRepository>();
 builder.Services.AddMediatR(typeof(CreateUserCommandHandler).Assembly);
 builder.Services.AddMediatR(typeof(GetUserByIdQueryHandler).Assembly);
 
-
 builder.Services.AddTransient<IUserDbContext, UserDbContext>();
 //YARP
 
@@ -138,6 +133,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
 
 app.UseRouting();
 app.UseAuthentication(); 

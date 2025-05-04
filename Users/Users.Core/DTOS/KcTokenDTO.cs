@@ -7,7 +7,7 @@ namespace Users.Core.DTO
 {
     public class KcTokenDTO
     {
-        public string RefreshToken { get; set; } = String.Empty;
-        public string AuthenticationToken { get; set; } = String.Empty;
+        public string refresh_token { get; set; } = String.Empty;
+        public string access_token { get; set; } = String.Empty;
     }
 }

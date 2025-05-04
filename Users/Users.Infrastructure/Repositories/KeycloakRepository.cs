@@ -47,9 +47,9 @@
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine($"Respuesta JSON del Token: {content}"); 
                     var tokenResponse = JsonSerializer.Deserialize<KcTokenDTO>(content);
-                    return tokenResponse?.AuthenticationToken ?? string.Empty;
-                }
+                        return tokenResponse?.access_token ?? string.Empty;                }
 
                 throw new KeycloakException("Failed to retrieve token from Keycloak.");
             } 
@@ -57,6 +57,7 @@
             public async Task<string> CreateUserAsync(KcCreateUserDTO user, string token)
             {
                 var url = $"{_configuration["Keycloak:BaseUrl"]}/admin/realms/{_configuration["Keycloak:Realm"]}/users";
+                var jsonBody = JsonSerializer.Serialize(user);
                 var requestBody = new StringContent(JsonSerializer.Serialize(user), Encoding.UTF8, "application/json");
 
                 using var request = new HttpRequestMessage(HttpMethod.Post, url)

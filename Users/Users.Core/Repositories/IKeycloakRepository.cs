@@ -5,7 +5,7 @@ namespace Users.Core.Repositories
     public interface IKeycloakRepository
     {
         Task<string> GetTokenAsync();
-        Task<string> CreateUserAsync(KcCreateUserDTO user,string token);   
+        Task<string> CreateUserAsync(KcCreateUserDTO user, string token);   
         Task AssignRoleToUserAsync(string keycloakUserId, string role, string token);
 
         /* Para los otros casos de uso

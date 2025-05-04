@@ -1,109 +1,84 @@
-using MediatR;
-using MassTransit;
-using Microsoft.EntityFrameworkCore;
-using Users.Domain.Entities;
-using Users.Application.Commands;
-using Users.Infrastructure.Database;
-using Users.Core.Repositories;
-using Users.Infrastructure.Exceptions;
-using Users.Infrastructure.Interfaces;
-using Users.Application.UserValidations;
-using Users.Application.DTO.Request; 
-using Users.Core.DTO;
-using System.Text.Json;
+    using MediatR;
+    using MassTransit;
+    using Microsoft.EntityFrameworkCore;
+    using Users.Domain.Entities;
+    using Users.Application.Commands;
+    using Users.Infrastructure.Database;
+    using Users.Core.Repositories;
+    using Users.Infrastructure.Exceptions;
+    using Users.Infrastructure.Interfaces;
+    using Users.Application.UserValidations;
+    using Users.Application.DTO.Request; 
+    using Users.Core.DTO;
+    using System.Text.Json;
 
-namespace Users.Application.Handlers
-{
-    public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Guid>
+    namespace Users.Application.Handlers
     {
-        private readonly IUserRepository _userRepository;
-        private readonly UserDbContext _dbContext;
-        private readonly IKeycloakRepository _keycloakRepository;
-
-        public CreateUserCommandHandler(IUserRepository userRepository, UserDbContext dbContext, IKeycloakRepository keycloakRepository /*, IAuthService authService*/)
+        public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, string>
         {
-            _userRepository = userRepository;
-            _dbContext = dbContext;
-            _keycloakRepository = keycloakRepository;
-            /* _authService = authService;  */
-        }
+            private readonly IUserRepository _userRepository;
+            private readonly UserDbContext _dbContext;
+            private readonly IKeycloakRepository _keycloakRepository;
 
-        public async Task<Guid> Handle(CreateUserCommand request, CancellationToken cancellationToken)
-        {
-            try
+            public CreateUserCommandHandler(IUserRepository userRepository, UserDbContext dbContext, IKeycloakRepository keycloakRepository /*, IAuthService authService*/)
             {
-                var validacion = new UserValidation();
-                await validacion.ValidateRequest(request.Users);
+                _userRepository = userRepository;
+                _dbContext = dbContext;
+                _keycloakRepository = keycloakRepository;
+                /* _authService = authService;  */
+            }
 
-                var newUser = new User(
-                    request.Users.UserName,
-                    request.Users.UserLastName,
-                    request.Users.UserEmail,
-                    request.Users.UserPhoneNumber,
-                    request.Users.UserDirection,
-                    request.Users.UserPassword
-                );
+            public async Task<string> Handle(CreateUserCommand request, CancellationToken cancellationToken)
+            {
+                    var validacion = new UserValidation();
+                    await validacion.ValidateRequest(request.Users);
 
-                if (!string.IsNullOrEmpty(request.Users.UserRole))
-                {
-                    if (Enum.TryParse<UserRoleName>(request.Users.UserRole, out var roleName))
+                    var newUser = new User(
+                        request.Users.UserName,
+                        request.Users.UserLastName,
+                        request.Users.UserEmail,
+                        request.Users.UserPhoneNumber,
+                        request.Users.UserDirection,
+                        request.Users.UserPassword
+                    );
+
+                    if (!string.IsNullOrEmpty(request.Users.UserRole))
                     {
-                        var newUserRole = new UserRole(roleName)
+                        if (Enum.TryParse<UserRoleName>(request.Users.UserRole, out var roleName))
                         {
-                            UserId = newUser.UserId 
-                        };
-                        newUser.UserRoles.Add(newUserRole);
-                        _dbContext.Role.Add(newUserRole);
+                            var newUserRole = new UserRole(roleName)
+                            {
+                                UserId = newUser.UserId 
+                            };
+                            newUser.UserRoles.Add(newUserRole);
+                            _dbContext.Role.Add(newUserRole);
+                        }
+                        else
+                        {
+                            Console.WriteLine($"El valor del rol '{request.Users.UserRole}' no es válido.");
+                        }
                     }
-                    else
-                    {
-                        Console.WriteLine($"El valor del rol '{request.Users.UserRole}' no es válido.");
-                    }
-                }
 
-                await _userRepository.CreateAsync(newUser);   
+                    await _userRepository.CreateAsync(newUser);   
 
-                await _dbContext.SaveChangesAsync(); 
+                    await _dbContext.SaveChangesAsync(); 
 
 
-                // Create user in Keycloak
-        var token = await _keycloakRepository.GetTokenAsync();
-        var KcUser = new KcCreateUserDTO
-        {
-            username = request.Users.UserEmail,
-            credentials = new [] { new { Type = "password", Value = request.Users.UserPassword, Temporary = false } },
-        };
-
-        var createUserResponseJson = await _keycloakRepository.CreateUserAsync(KcUser, token);
-
-        if (string.IsNullOrEmpty(createUserResponseJson))
-        {
-            throw new KeycloakException("Error al crear el usuario en Keycloak: respuesta vacía.");
-        }
-
-        try
-        {
-            using JsonDocument createUserDocument = JsonDocument.Parse(createUserResponseJson);
-            if (createUserDocument.RootElement.TryGetProperty("id", out var id))
+                    // Crear usuario en Keycloak
+            var token = await _keycloakRepository.GetTokenAsync();
+            var KcUser = new KcCreateUserDTO
             {
-                string keycloakUserId = id.GetString();
-                await _keycloakRepository.AssignRoleToUserAsync(keycloakUserId, request.Users.UserRole, token);
+                username = request.Users.UserEmail,
+                email = request.Users.UserEmail,
+                enabled = true,
+                firstName = request.Users.UserName,
+                lastName = request.Users.UserLastName,  
+                credentials = new [] { new { type = "password", value = request.Users.UserPassword, temporary = false } },
+            };
+
+            var createUserResponseJson = await _keycloakRepository.CreateUserAsync(KcUser, token);
+                return "Usuario Registrado Correctamente";
+                 
             }
-            else
-            {
-                throw new KeycloakException("Error al crear el usuario en Keycloak: la respuesta no contiene el ID del usuario.");
-            }
-        }
-        catch (JsonException ex)
-        {
-            throw new KeycloakException($"Error al procesar la respuesta de creación de usuario en Keycloak: {ex.Message}", ex);
-        }
-            return newUser.UserId;
-            }
-            catch (Exception)
-            {
-                throw;
-            }   
         }
     }
-}
