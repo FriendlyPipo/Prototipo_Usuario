@@ -1,33 +1,27 @@
+using Yarp.ReverseProxy.Configuration;
+using Yarp.ReverseProxy.Forwarder;
+
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-builder.Services.AddReverseProxy()
-    .LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"));
-
-builder.Services.AddCors(options =>
+builder.Logging.AddConsole(); // Habilita el logging en la consola
+builder.Logging.SetMinimumLevel(LogLevel.Debug);
+builder.Logging.AddConsole(options =>
 {
-    options.AddPolicy("AllowAll", builder =>
-    {
-        builder.AllowAnyOrigin()
-               .AllowAnyMethod()
-               .AllowAnyHeader();
-    });
+    options.LogToStandardErrorThreshold = LogLevel.Warning;
 });
-
+builder.Logging.AddFilter("Yarp", LogLevel.Debug);
+// Configuración de YARP
+builder.Services.AddReverseProxy()
+       .LoadFromConfig(builder.Configuration.GetSection("ReverseProxy")); 
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
+// Configuración del pipeline de YARP
+app.UseRouting();
+
+app.UseEndpoints(endpoints =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseCors("AllowAll");
-app.UseHttpsRedirection();
-
-app.MapReverseProxy();
+    endpoints.MapReverseProxy(); 
+});
 
 app.Run();

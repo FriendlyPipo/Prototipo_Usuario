@@ -42,12 +42,11 @@
                     Content = new FormUrlEncodedContent(requestBody)
                 };
 
-                var response = await _httpClient.SendAsync(request);
+                var response = await _httpClient.SendAsync(request);    
 
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    Console.WriteLine($"Respuesta JSON del Token: {content}"); 
                     var tokenResponse = JsonSerializer.Deserialize<KcTokenDTO>(content);
                         return tokenResponse?.access_token ?? string.Empty;                }
 

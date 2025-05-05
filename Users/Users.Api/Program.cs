@@ -118,7 +118,7 @@ builder.Services.AddMediatR(typeof(CreateUserCommandHandler).Assembly);
 builder.Services.AddMediatR(typeof(GetUserByIdQueryHandler).Assembly);
 
 builder.Services.AddTransient<IUserDbContext, UserDbContext>();
-//YARP
+
 
 var app = builder.Build();
 // Configure the HTTP request pipeline.
