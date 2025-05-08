@@ -5,7 +5,7 @@ using Users.Infrastructure.Exceptions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace Users.Application.Handlers
+namespace Users.Application.Handlers.Queries
 {
     public class GetUserByIdQueryHandler : IRequestHandler<GetUserByIdQuery, GetUserDTO>
     {

@@ -34,5 +34,37 @@ namespace Users.Api.Controllers
                 return BadRequest(e.Message);
             }
         }
+
+        [HttpDelete("DeleteUser")]
+        [Authorize] 
+        public async Task<IActionResult> DeleteUser(DeleteUserDTO deleteUserDTO)
+        {
+            try
+            {   
+                var command = new DeleteUserCommand(deleteUserDTO);
+                var userId = await _mediator.Send(command);
+                return Ok(userId);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+        [HttpPut("UpdateUser")]
+        [Authorize]
+        public async Task<IActionResult> UpdateUser(UpdateUserDTO updateUserDTO)
+        {
+            try
+            {
+                var command = new UpdateUserCommand(updateUserDTO);
+                var userId = await _mediator.Send(command);
+                return Ok(userId);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
     }
 }

@@ -2,7 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using Users.Core.Repositories;
 using Users.Infrastructure.Database;
 using Users.Infrastructure.Repositories;
-using Users.Application.Handlers;
+using Users.Application.Handlers.Commands;
+using Users.Application.Handlers.Queries;
 using MediatR;
 using Users.Infrastructure.Interfaces;
 using Users.Core.Database;
@@ -115,6 +116,8 @@ builder.Services.AddScoped<IKeycloakRepository, KeycloakRepository>();
 //builder.Services.AddScoped<IAuthService>(); 
 
 builder.Services.AddMediatR(typeof(CreateUserCommandHandler).Assembly);
+builder.Services.AddMediatR(typeof(DeleteUserCommandHandler).Assembly);
+builder.Services.AddMediatR(typeof(UpdateUserCommandHandler).Assembly);
 builder.Services.AddMediatR(typeof(GetUserByIdQueryHandler).Assembly);
 
 builder.Services.AddTransient<IUserDbContext, UserDbContext>();

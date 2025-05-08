@@ -21,9 +21,9 @@ namespace Users.Infrastructure.Repositories
 
         public async Task<User?> GetByIdWithRoleAsync(Guid userId)
         {
-        return await _dbContext.User
-        .Include(u => u.UserRoles)
-        .FirstOrDefaultAsync(u => u.UserId == userId);
+            return await _dbContext.User
+                .Include(u => u.UserRoles)
+                .FirstOrDefaultAsync(u => u.UserId == userId);
         }
 
         public async Task<IEnumerable<User>> GetAllAsync()
@@ -34,7 +34,6 @@ namespace Users.Infrastructure.Repositories
         public async Task CreateAsync(User user)
         {
             _dbContext.User.Add(user);
-            await _dbContext.SaveChangesAsync();
         }
 
         public async Task DeleteAsync(Guid userId)
@@ -43,14 +42,13 @@ namespace Users.Infrastructure.Repositories
             if (user != null)
             {
                 _dbContext.User.Remove(user);
-                await _dbContext.SaveChangesAsync();
             }
         }
 
         public async Task UpdateAsync(User user)
         {
             _dbContext.User.Update(user);
-            await _dbContext.SaveChangesAsync();
+
         }
     }
 }

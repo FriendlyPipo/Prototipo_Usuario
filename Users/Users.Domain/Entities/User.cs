@@ -12,7 +12,7 @@ namespace Users.Domain.Entities
         public string? CreatedBy { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public string? UpdatedBy { get; set; }
-        public bool UserConfirmation { get; private set; }   
+        public bool UserConfirmation { get; set; }   
         public string UserPassword { get; private set; }
         public ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
 
@@ -27,6 +27,36 @@ namespace Users.Domain.Entities
             this.UserPassword = UserPassword;
             this.UserConfirmation = false;
             this.CreatedAt = DateTime.UtcNow;
+        }
+
+         public void UpdateUserName(string userName)
+        {
+            UserName = userName;
+        }
+
+        public void UpdateUserLastName(string userLastName)
+        {
+            UserLastName = userLastName;
+        }
+
+        public void UpdateUserEmail(string userEmail)
+        {
+            UserEmail = userEmail;
+        }
+
+        public void UpdateUserPhoneNumber(string userPhoneNumber)
+        {
+            UserPhoneNumber = userPhoneNumber;
+        }
+
+        public void UpdateUserDirection(string userDirection)
+        {
+            UserDirection = userDirection;
+        }
+
+        public void UpdateUserPassword(string userPassword)
+        {
+            UserPassword = userPassword;
         }
     }
 }

@@ -9,10 +9,9 @@
     using Users.Infrastructure.Interfaces;
     using Users.Application.UserValidations;
     using Users.Application.DTO.Request; 
-    using Users.Core.DTO;
     using System.Text.Json;
 
-    namespace Users.Application.Handlers
+    namespace Users.Application.Handlers.Commands
     {
         public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, string>
         {
@@ -58,15 +57,14 @@
                             Console.WriteLine($"El valor del rol '{request.Users.UserRole}' no es válido.");
                         }
                     }
-
+    
                     await _userRepository.CreateAsync(newUser);   
-
                     await _dbContext.SaveChangesAsync(); 
 
 
                     // Crear usuario en Keycloak
             var token = await _keycloakRepository.GetTokenAsync();
-            var KcUser = new KcCreateUserDTO
+            var KcUser = new 
             {
                 username = request.Users.UserEmail,
                 email = request.Users.UserEmail,
