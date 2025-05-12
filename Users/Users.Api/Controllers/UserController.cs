@@ -66,5 +66,37 @@ namespace Users.Api.Controllers
                 return BadRequest(e.Message);
             }
         }
+
+        [HttpGet("GetUserById")]
+        [Authorize] 
+        public async Task<IActionResult> GetUserById(Guid userId)
+        {
+            try
+            {
+                var query = new GetUserByIdQuery(userId);
+                var user = await _mediator.Send(query);
+                return Ok(user);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        } 
+
+        [HttpGet("GetAllUsers")]
+        [Authorize]
+        public async Task<IActionResult> GetAllUsers()
+        {
+            try
+            {
+                var query = new GetAllUsesrQuery();
+                var users = await _mediator.Send(query);
+                return Ok(users);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
     }
-}
+}   

@@ -16,19 +16,19 @@ namespace Users.Infrastructure.Repositories
 
         public async Task<User?> GetByIdAsync(Guid userId)
         {
-            return await _dbContext.User.FindAsync(userId);
-        }
-
-        public async Task<User?> GetByIdWithRoleAsync(Guid userId)
-        {
             return await _dbContext.User
                 .Include(u => u.UserRoles)
                 .FirstOrDefaultAsync(u => u.UserId == userId);
         }
 
+        public async Task<User?> GetByEmailAsync(string userEmail)
+        {
+            return await _dbContext.User.FirstOrDefaultAsync(u => u.UserEmail == userEmail);
+        }
+
         public async Task<IEnumerable<User>> GetAllAsync()
         {
-            return await _dbContext.User.ToListAsync();
+            return await _dbContext.User.Include(u => u.UserRoles).ToListAsync();
         }
 
         public async Task CreateAsync(User user)
@@ -48,7 +48,6 @@ namespace Users.Infrastructure.Repositories
         public async Task UpdateAsync(User user)
         {
             _dbContext.User.Update(user);
-
         }
     }
 }

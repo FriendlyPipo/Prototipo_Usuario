@@ -1,31 +1,31 @@
+using Users.Application.DTO.Respond;
 using Users.Application.Queries;
 using Users.Core.Repositories;
-using Users.Application.DTO.Respond;
 using Users.Infrastructure.Exceptions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace Users.Application.Handlers.Queries
 {
-    public class GetUserByIdQueryHandler : IRequestHandler<GetUserByIdQuery, GetUserDTO>
+    public class GetAllUsersQueryHandler : IRequestHandler<GetAllUsesrQuery, List<GetUserDTO>>
     {
         private readonly IUserRepository _userRepository;
 
-        public GetUserByIdQueryHandler(IUserRepository userRepository)
+        public GetAllUsersQueryHandler(IUserRepository userRepository)
         {
             _userRepository = userRepository;
         }
 
-        public async Task<GetUserDTO> Handle(GetUserByIdQuery request, CancellationToken cancellationToken)
+        public async Task<List<GetUserDTO>> Handle(GetAllUsesrQuery request, CancellationToken cancellationToken)
         {
-            var user = await _userRepository.GetByIdAsync(request.UserId);
+            var users = await _userRepository.GetAllAsync();
 
-            if (user == null)
+            if (users == null || !users.Any())
             {
-                throw new UserNotFoundException("Usuario no encontrado");
+                throw new UserNotFoundException("No se encontraron usuarios");
             }
 
-            return new GetUserDTO
+            return users.Select(user => new GetUserDTO
             {
                 UserId = user.UserId,
                 UserName = user.UserName,
@@ -34,7 +34,7 @@ namespace Users.Application.Handlers.Queries
                 UserPhoneNumber = user.UserPhoneNumber,
                 UserDirection = user.UserDirection,
                 UserRole = user.UserRoles.FirstOrDefault()?.RoleName.ToString()
-            };
+            }).ToList();
         }
     }
 }

@@ -11,10 +11,5 @@ namespace Users.Core.Repositories
         Task<bool> DisableUserAsync(string keycloakUserId, string token);
         Task<string?> GetUserIdAsync(string keycloakUserId, string token);
         Task<string> UpdateUserAsync(object user,string keycloakUserId, string token); 
-
-        /* Para los otros casos de uso
-         Task<string> LoginAsync(string username, string password); 
-         Task<string> LogOutAsync();
-         */
     }
 }
