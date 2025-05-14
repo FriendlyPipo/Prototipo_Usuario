@@ -1,4 +1,4 @@
-using MongoDb.Bson.Serialization.Attributes;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace Users.Infrastructure.Persistance
 {
@@ -39,9 +39,6 @@ namespace Users.Infrastructure.Persistance
 
         [BsonElement("userPassword")]   
         public string UserPassword { get;  set; }
-        
-        [BsonElement("userRoles")]
-        public ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
 
     }
 }

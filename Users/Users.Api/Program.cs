@@ -2,16 +2,26 @@ using Microsoft.EntityFrameworkCore;
 using Users.Core.Repositories;
 using Users.Infrastructure.Database;
 using Users.Infrastructure.Repositories;
+using Users.Infrastructure.EventBus.Events;
+using Users.Infrastructure.EventBus;
+using Users.Infrastructure.Interfaces;
+using Users.Infrastructure.EventBus.Consumers;
+using Users.Infrastructure.Settings;
 using Users.Application.Handlers.Commands;
 using Users.Application.Handlers.Queries;
 using MediatR;
-using Users.Infrastructure.Interfaces;
 using Users.Core.Database;
+using Users.Core.Events;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using Users;
-
+using MongoDB.Driver;
+using MongoDB.Bson.Serialization.Serializers;
+using MongoDB.Bson.Serialization;
+using MongoDB.Bson;
+using RabbitMQ.Client;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -78,14 +88,46 @@ builder.Services.AddCors(options =>
     });
 });
 
+BsonSerializer.RegisterSerializer(new GuidSerializer(GuidRepresentation.Standard));
 
 builder.Services.AddDbContext<UserDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("PostgresConnectionUser")));
 
+builder.Services.AddSingleton<IMongoClient>(sp =>  
+    new MongoClient(builder.Configuration["MongoDbSettings:ConnectionString"]));
+
+builder.Services.Configure<MongoDBSettings>(builder.Configuration.GetSection("MongoDbSettings"));
+
+builder.Services.Configure<RabbitMQSetting>(builder.Configuration.GetSection("RabbitMQ"));
+builder.Services.AddSingleton<Task<IConnection>>(async sp =>
+{
+    var rabbitSettings = sp.GetRequiredService<IOptions<RabbitMQSetting>>().Value;
+    var factory = new ConnectionFactory
+    {
+        HostName = rabbitSettings.HostName,
+        UserName = rabbitSettings.UserName,
+        Password = rabbitSettings.Password
+    };
+    try
+    {
+        return await factory.CreateConnectionAsync();
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Error creating RabbitMQ connection: {ex.Message}");
+        throw;
+    }
+});
+
+builder.Services.AddSingleton<IConnection>(sp => sp.GetRequiredService<Task<IConnection>>().Result);
+
+
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IKeycloakRepository, KeycloakRepository>();
-
-//builder.Services.AddScoped<IAuthService>(); 
+builder.Services.AddSingleton<IEventBus, RabbitMQPublisher>();
+builder.Services.AddSingleton<CreateUserConsumer>();
+builder.Services.AddSingleton<DeletedUserConsumer>();
+builder.Services.AddSingleton<UpdatedUserConsumer>();
 
 builder.Services.AddMediatR(typeof(CreateUserCommandHandler).Assembly);
 builder.Services.AddMediatR(typeof(DeleteUserCommandHandler).Assembly);
@@ -97,6 +139,16 @@ builder.Services.AddTransient<IUserDbContext, UserDbContext>();
 
 
 var app = builder.Build();
+
+
+var rabbitMqConnection = app.Services.GetRequiredService<IConnection>();
+var createUserConsumer = app.Services.GetRequiredService<CreateUserConsumer>();
+var deletedUserConsumer = app.Services.GetRequiredService<DeletedUserConsumer>();
+var updatedUserConsumer = app.Services.GetRequiredService<UpdatedUserConsumer>();
+await createUserConsumer.Start(rabbitMqConnection);
+await deletedUserConsumer.Start(rabbitMqConnection);
+await updatedUserConsumer.Start(rabbitMqConnection);
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

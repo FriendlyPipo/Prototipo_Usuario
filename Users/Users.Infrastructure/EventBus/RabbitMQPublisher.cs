@@ -10,7 +10,7 @@ using Users.Core.Events;
 
 namespace Users.Infrastructure.EventBus
 {
-    public class RabbitMQPublisher<T> : IEventBus<T>
+    public class RabbitMQPublisher : IEventBus
     {
         private readonly RabbitMQSetting _rabbitMQSetting;
 
@@ -21,17 +21,19 @@ namespace Users.Infrastructure.EventBus
 
         public async Task Publish<T>(T message, string queueName)
         {
+            try 
+            {
              var factory = new ConnectionFactory
             {
                 HostName = _rabbitMQSetting.HostName,
                 UserName = _rabbitMQSetting.UserName,
                 Password = _rabbitMQSetting.Password
             };
-
+            Console.WriteLine($"Publishing message to RabbitMQ: {queueName}");
             using var connection = await factory.CreateConnectionAsync();
             using var channel = await connection.CreateChannelAsync();
 
-            channel.QueueDeclareAsync(queue: queueName, durable: false, exclusive: false, autoDelete: false, arguments: null);
+            channel.QueueDeclareAsync(queue: queueName, durable: true, exclusive: false, autoDelete: false, arguments: null);
 
             var messageJson = JsonConvert.SerializeObject(message);
             var body = Encoding.UTF8.GetBytes(messageJson);
@@ -42,6 +44,13 @@ namespace Users.Infrastructure.EventBus
                 body: body,
                 mandatory: false,
                 cancellationToken: System.Threading.CancellationToken.None);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error publishing message to RabbitMQ:{queueName} {ex.Message}");
+                throw;
+            }
+
         }
     }
 

@@ -1,7 +1,7 @@
 namespace Users.Core.Events
 {
-    public interface IEventBus<T>
+    public interface IEventBus
     {
-        Task Publish<T>(T message, string queueName);
+        Task Publish<T> (T message, string queueName);
     }
 }

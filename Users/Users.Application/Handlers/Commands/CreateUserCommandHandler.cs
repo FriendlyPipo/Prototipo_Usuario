@@ -9,6 +9,9 @@
     using Users.Infrastructure.Interfaces;
     using Users.Application.UserValidations;
     using Users.Application.DTO.Request; 
+    using Users.Infrastructure.EventBus;
+    using Users.Core.Events;
+    using Users.Infrastructure.EventBus.Events;
     using System.Text.Json;
 
     namespace Users.Application.Handlers.Commands
@@ -18,18 +21,20 @@
             private readonly IUserRepository _userRepository;
             private readonly UserDbContext _dbContext;
             private readonly IKeycloakRepository _keycloakRepository;
+            private readonly IEventBus _eventBus;
 
-            public CreateUserCommandHandler(IUserRepository userRepository, UserDbContext dbContext, IKeycloakRepository keycloakRepository /*, IAuthService authService*/)
+            public CreateUserCommandHandler(IEventBus eventBus,IUserRepository userRepository, UserDbContext dbContext, IKeycloakRepository keycloakRepository)
             {
                 _userRepository = userRepository;
                 _dbContext = dbContext;
                 _keycloakRepository = keycloakRepository;
-                /* _authService = authService;  */
+                _eventBus = eventBus;
             }
 
             public async Task<string> Handle(CreateUserCommand request, CancellationToken cancellationToken)
             {
                     var validacion = new UserValidation();
+                    Guid roleId= Guid.Empty;
                     await validacion.ValidateRequest(request.Users);
 
                     var newUser = new User(
@@ -51,6 +56,7 @@
                             };
                             newUser.UserRoles.Add(newUserRole);
                             _dbContext.Role.Add(newUserRole);
+                            roleId = newUserRole.RoleId;
                         }
                         else
                         {
@@ -59,8 +65,11 @@
                     }
     
                     await _userRepository.CreateAsync(newUser);   
-                    await _dbContext.SaveChangesAsync(); 
+                    await _dbContext.SaveChangesAsync();
 
+                        //Registrar en MongoDB
+                var userCreatedEvent = new UserCreatedEvent(newUser.UserId, newUser.UserName, newUser.UserLastName, newUser.UserEmail, newUser.UserPhoneNumber, newUser.UserDirection, newUser.CreatedAt, newUser.CreatedBy, newUser.UpdatedAt, newUser.UpdatedBy, newUser.UserConfirmation, newUser.UserPassword,roleId, request.Users.UserRole);
+                _eventBus.Publish<UserCreatedEvent>(userCreatedEvent, "user.created");   
 
                     // Crear usuario en Keycloak
             var token = await _keycloakRepository.GetTokenAsync();
@@ -75,6 +84,8 @@
             };
 
             var createUserResponseJson = await _keycloakRepository.CreateUserAsync(KcUser, token);
+
+
                 return "Usuario Registrado Correctamente";
                  
             }

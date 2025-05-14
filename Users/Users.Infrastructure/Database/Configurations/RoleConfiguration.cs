@@ -20,7 +20,8 @@ namespace Users.Infrastructure.Database.Configurations
             builder.HasOne(r => r.User)
                 .WithMany(u => u.UserRoles)
                 .HasForeignKey(r => r.UserId)
-                .HasConstraintName("FK_UserId");
+                .HasConstraintName("FK_UserId")
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

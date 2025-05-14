@@ -12,7 +12,9 @@
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="8.0.4" />
     <PackageReference Include="microsoft.openApi" Version="1.6.24" />
+    <PackageReference Include="MongoDB.Driver" Version="3.4.0" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
+    <PackageReference Include="RabbitMQ.Client" Version="7.1.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="8.1.1" />
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="8.1.1" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="8.1.1" />
