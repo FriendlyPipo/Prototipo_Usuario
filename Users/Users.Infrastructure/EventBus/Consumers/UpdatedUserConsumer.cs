@@ -1,7 +1,6 @@
 using Users.Infrastructure.EventBus.Events;
 using Users.Infrastructure.Settings;
 using Users.Domain.Entities;
-using Users.Infrastructure.Persistance;
 using MongoDB.Driver;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;

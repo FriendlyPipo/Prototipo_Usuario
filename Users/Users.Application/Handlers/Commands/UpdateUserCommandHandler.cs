@@ -18,14 +18,14 @@ namespace Users.Application.Handlers.Commands
 {
     public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand, string>
     {
-        private readonly IUserRepository _userRepository;
+        private readonly IUserWriteRepository _userWriteRepository;
         private readonly UserDbContext _dbContext;
         private readonly IKeycloakRepository _keycloakRepository;
         private readonly IEventBus _eventBus;
 
-        public UpdateUserCommandHandler(IEventBus eventBus, IUserRepository userRepository, UserDbContext dbContext, IKeycloakRepository keycloakRepository)
+        public UpdateUserCommandHandler(IEventBus eventBus, IUserWriteRepository userWriteRepository, UserDbContext dbContext, IKeycloakRepository keycloakRepository)
         {
-            _userRepository = userRepository;
+            _userWriteRepository = userWriteRepository;
             _dbContext = dbContext;
             _keycloakRepository = keycloakRepository;
             _eventBus = eventBus;
@@ -33,7 +33,7 @@ namespace Users.Application.Handlers.Commands
 
         public async Task<string> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
         {
-            var updatedUser = await _userRepository.GetByIdAsync(request.Users.UserId);
+            var updatedUser = await _userWriteRepository.GetByIdAsync(request.Users.UserId);
             Guid roleId= Guid.Empty;
             var existingUser = updatedUser.UserEmail;
             if (updatedUser == null)
@@ -95,7 +95,7 @@ namespace Users.Application.Handlers.Commands
                     Console.WriteLine($"El valor del rol '{request.Users.UserRole}' no es válido.");
                 }
 
-            await _userRepository.UpdateAsync(updatedUser);
+            await _userWriteRepository.UpdateAsync(updatedUser);
             await _dbContext.SaveChangesAsync(cancellationToken);
 
             var userUpdatedEvent = new UserUpdatedEvent(

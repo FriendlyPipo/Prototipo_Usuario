@@ -6,7 +6,7 @@ using Users.Core.Repositories;
 
 
 namespace Users.Infrastructure.Repositories
-{
+{ /*
     public class EmailServiceRepository : IEmailServiceRepository
     {
         private readonly SmtpClient _smtpClient;
@@ -49,5 +49,5 @@ namespace Users.Infrastructure.Repositories
             var body = $"<p>Para restablecer tu contraseña, haz clic en el siguiente enlace:</p><p><a href='{resetLink}'>Restablecer contraseña</a></p>";
             await SendEmailAsync(to, subject, body);
         }
-    }
+    } */
 }

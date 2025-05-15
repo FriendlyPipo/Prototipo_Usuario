@@ -1,6 +1,6 @@
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace Users.Infrastructure.Persistance
+namespace Users.Domain.Entities
 {
     public class MongoRoleDocument
 

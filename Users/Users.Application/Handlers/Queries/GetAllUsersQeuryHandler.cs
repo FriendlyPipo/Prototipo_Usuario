@@ -9,16 +9,16 @@ namespace Users.Application.Handlers.Queries
 {
     public class GetAllUsersQueryHandler : IRequestHandler<GetAllUsesrQuery, List<GetUserDTO>>
     {
-        private readonly IUserRepository _userRepository;
+        private readonly IUserReadRepository _userReadRepository;
 
-        public GetAllUsersQueryHandler(IUserRepository userRepository)
+        public GetAllUsersQueryHandler(IUserReadRepository userReadRepository)
         {
-            _userRepository = userRepository;
+            _userReadRepository = userReadRepository;
         }
 
         public async Task<List<GetUserDTO>> Handle(GetAllUsesrQuery request, CancellationToken cancellationToken)
         {
-            var users = await _userRepository.GetAllAsync();
+            var users = await _userReadRepository.GetAllAsync();
 
             if (users == null || !users.Any())
             {
@@ -33,7 +33,7 @@ namespace Users.Application.Handlers.Queries
                 UserEmail = user.UserEmail,
                 UserPhoneNumber = user.UserPhoneNumber,
                 UserDirection = user.UserDirection,
-                UserRole = user.UserRoles.FirstOrDefault()?.RoleName.ToString()
+                UserRole = user.UserRole
             }).ToList();
         }
     }

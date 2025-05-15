@@ -122,7 +122,8 @@ builder.Services.AddSingleton<Task<IConnection>>(async sp =>
 builder.Services.AddSingleton<IConnection>(sp => sp.GetRequiredService<Task<IConnection>>().Result);
 
 
-builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserReadRepository, UserReadRepository>();
+builder.Services.AddScoped<IUserWriteRepository, UserWriteRepository>();
 builder.Services.AddScoped<IKeycloakRepository, KeycloakRepository>();
 builder.Services.AddSingleton<IEventBus, RabbitMQPublisher>();
 builder.Services.AddSingleton<CreateUserConsumer>();
@@ -136,7 +137,7 @@ builder.Services.AddMediatR(typeof(GetUserByIdQueryHandler).Assembly);
 builder.Services.AddMediatR(typeof(GetAllUsersQueryHandler).Assembly);
 
 builder.Services.AddTransient<IUserDbContext, UserDbContext>();
-
+builder.Services.AddTransient<MongoDbContext>();
 
 var app = builder.Build();
 

@@ -18,14 +18,14 @@
     {
         public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, string>
         {
-            private readonly IUserRepository _userRepository;
+            private readonly IUserWriteRepository _userWriteRepository;
             private readonly UserDbContext _dbContext;
             private readonly IKeycloakRepository _keycloakRepository;
             private readonly IEventBus _eventBus;
 
-            public CreateUserCommandHandler(IEventBus eventBus,IUserRepository userRepository, UserDbContext dbContext, IKeycloakRepository keycloakRepository)
+            public CreateUserCommandHandler(IEventBus eventBus,IUserWriteRepository userWriteRepository, UserDbContext dbContext, IKeycloakRepository keycloakRepository)
             {
-                _userRepository = userRepository;
+                _userWriteRepository = userWriteRepository;
                 _dbContext = dbContext;
                 _keycloakRepository = keycloakRepository;
                 _eventBus = eventBus;
@@ -64,7 +64,7 @@
                         }
                     }
     
-                    await _userRepository.CreateAsync(newUser);   
+                    await _userWriteRepository.CreateAsync(newUser);   
                     await _dbContext.SaveChangesAsync();
 
                         //Registrar en MongoDB

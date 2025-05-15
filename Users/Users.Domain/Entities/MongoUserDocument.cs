@@ -1,26 +1,26 @@
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace Users.Infrastructure.Persistance
+namespace Users.Domain.Entities
 {
     public class MongoUserDocument
     {
         [BsonId]
-        public Guid UserId { get;  set; }
+        public Guid UserId { get; set; }
 
-        [BsonElement("userName")] 
-        public string UserName { get;  set; }
+        [BsonElement("userName")]
+        public string UserName { get; set; }
 
         [BsonElement("userLastName")]
-        public string UserLastName { get;  set; }
+        public string UserLastName { get; set; }
 
         [BsonElement("userEmail")]
-        public string UserEmail { get;  set; }
+        public string UserEmail { get; set; }
 
         [BsonElement("userPhoneNumber")]
-        public string UserPhoneNumber { get;  set; }
+        public string UserPhoneNumber { get; set; }
 
         [BsonElement("userDirection")]
-        public string UserDirection { get;  set; }
+        public string UserDirection { get; set; }
 
         [BsonElement("createdAt")]
         public DateTime CreatedAt { get; set; }
@@ -37,8 +37,9 @@ namespace Users.Infrastructure.Persistance
         [BsonElement("userConfirmation")]
         public bool UserConfirmation { get; set; }
 
-        [BsonElement("userPassword")]   
-        public string UserPassword { get;  set; }
+        [BsonElement("userPassword")]
+        public string UserPassword { get; set; }
+        public string? UserRole { get; set; }
 
     }
 }

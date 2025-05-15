@@ -14,14 +14,14 @@ namespace Users.Application.Handlers.Commands
 {
     public class DeleteUserCommandHandler : IRequestHandler<DeleteUserCommand, string>
     {
-        private readonly IUserRepository _userRepository;
+        private readonly IUserWriteRepository _userWriteRepository;
         private readonly UserDbContext _dbContext;
         private readonly IKeycloakRepository _keycloakRepository;
         private readonly IEventBus _eventBus;
 
-        public DeleteUserCommandHandler(IEventBus eventBus,IUserRepository userRepository, UserDbContext dbContext, IKeycloakRepository keycloakRepository)
+        public DeleteUserCommandHandler(IEventBus eventBus,IUserWriteRepository userWriteRepository, UserDbContext dbContext, IKeycloakRepository keycloakRepository)
         {
-            _userRepository = userRepository;
+            _userWriteRepository = userWriteRepository;
             _dbContext = dbContext;
             _keycloakRepository = keycloakRepository;
             _eventBus = eventBus;
@@ -29,13 +29,13 @@ namespace Users.Application.Handlers.Commands
 
         public async Task<string> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
         {
-            var deletedUser = await _userRepository.GetByIdAsync(request.Users.UserId);
+            var deletedUser = await _userWriteRepository.GetByIdAsync(request.Users.UserId);
             if (deletedUser == null)
             {
                 throw new UserNotFoundException($"Usuario con ID '{request.Users.UserId}' no encontrado.");
             }
             var userDeletedEvent = new UserDeletedEvent(request.Users.UserId);
-            await _userRepository.DeleteAsync(deletedUser.UserId);
+            await _userWriteRepository.DeleteAsync(deletedUser.UserId);
             var deletedFromDb = await _dbContext.SaveChangesAsync() > 0;  
             _eventBus.Publish<UserDeletedEvent>(userDeletedEvent, "user.deleted");            
 
