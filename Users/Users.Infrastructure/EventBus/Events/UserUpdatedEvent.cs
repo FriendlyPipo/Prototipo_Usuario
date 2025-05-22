@@ -11,8 +11,6 @@ namespace Users.Infrastructure.EventBus.Events
         string? CreatedBy, 
         DateTime? UpdatedAt, 
         string? UpdatedBy, 
-        bool? UserConfirmation, 
-        string? UserPassword,
         Guid RoleId,
         string? RoleName); 
 }

@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Users.Application.Handlers.Queries
 {
-    public class GetAllUsersQueryHandler : IRequestHandler<GetAllUsesrQuery, List<GetUserDTO>>
+    public class GetAllUsersQueryHandler : IRequestHandler<GetAllUsersQuery, List<GetUserDTO>>
     {
         private readonly IUserReadRepository _userReadRepository;
 
@@ -16,7 +16,7 @@ namespace Users.Application.Handlers.Queries
             _userReadRepository = userReadRepository;
         }
 
-        public async Task<List<GetUserDTO>> Handle(GetAllUsesrQuery request, CancellationToken cancellationToken)
+        public async Task<List<GetUserDTO>> Handle(GetAllUsersQuery request, CancellationToken cancellationToken)
         {
             var users = await _userReadRepository.GetAllAsync();
 

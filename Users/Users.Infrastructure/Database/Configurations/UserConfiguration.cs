@@ -15,9 +15,8 @@ namespace Users.Infrastructure.Database.Configurations
             builder.Property(u => u.UserPhoneNumber).IsRequired().HasMaxLength(25);
             builder.Property(u => u.UserDirection).IsRequired().HasMaxLength(200);
             builder.Property(u => u.CreatedAt).IsRequired();
-            builder.Property(u => u.UserConfirmation).IsRequired();
 
-            builder.HasMany(u => u.UserRoles) // Un Usuario puede tener muchos Roles
+            builder.HasMany(u => u.UserRoles) // Un Usuario puede tener un rol 
                 .WithOne(r => r.User)
                 .HasForeignKey(r => r.UserId)
                 .OnDelete(DeleteBehavior.Restrict);

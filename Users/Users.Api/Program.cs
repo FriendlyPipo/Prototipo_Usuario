@@ -4,7 +4,6 @@ using Users.Infrastructure.Database;
 using Users.Infrastructure.Repositories;
 using Users.Infrastructure.EventBus.Events;
 using Users.Infrastructure.EventBus;
-using Users.Infrastructure.Interfaces;
 using Users.Infrastructure.EventBus.Consumers;
 using Users.Infrastructure.Settings;
 using Users.Application.Handlers.Commands;
@@ -133,6 +132,7 @@ builder.Services.AddSingleton<UpdatedUserConsumer>();
 builder.Services.AddMediatR(typeof(CreateUserCommandHandler).Assembly);
 builder.Services.AddMediatR(typeof(DeleteUserCommandHandler).Assembly);
 builder.Services.AddMediatR(typeof(UpdateUserCommandHandler).Assembly);
+builder.Services.AddMediatR(typeof(ForgotPasswordCommandHandler).Assembly);
 builder.Services.AddMediatR(typeof(GetUserByIdQueryHandler).Assembly);
 builder.Services.AddMediatR(typeof(GetAllUsersQueryHandler).Assembly);
 

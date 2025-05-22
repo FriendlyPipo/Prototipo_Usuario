@@ -4,7 +4,7 @@ using Users.Application.DTO.Respond;
 
 namespace Users.Application.Queries
 {
-    public class GetAllUsesrQuery : IRequest<List<GetUserDTO>>
+    public class GetAllUsersQuery : IRequest<List<GetUserDTO>>
     {
         public Guid UserId { get; set; } 
         public string? UserName { get; set; }

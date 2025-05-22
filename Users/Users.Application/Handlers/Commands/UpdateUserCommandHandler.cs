@@ -6,7 +6,6 @@
     using Users.Infrastructure.Database;
     using Users.Core.Repositories;
     using Users.Infrastructure.Exceptions;
-    using Users.Infrastructure.Interfaces;
     using Users.Application.UserValidations;
     using Users.Application.DTO.Request; 
     using Users.Infrastructure.EventBus;
@@ -67,10 +66,6 @@ namespace Users.Application.Handlers.Commands
                 updatedUser.UpdateUserDirection(request.Users.UserDirection);
             }
 
-            if (request.Users.UserPassword != null)
-            {
-                updatedUser.UpdateUserPassword(request.Users.UserPassword);
-            }
 
             var existingRole = await _dbContext.Role
                     .FirstOrDefaultAsync(r => r.UserId == updatedUser.UserId, cancellationToken);
@@ -108,9 +103,7 @@ namespace Users.Application.Handlers.Commands
                 updatedUser.CreatedAt,
                 updatedUser.CreatedBy, 
                 updatedUser.UpdatedAt, 
-                updatedUser.UpdatedBy, 
-                updatedUser.UserConfirmation, 
-                updatedUser.UserPassword,
+                updatedUser.UpdatedBy,
                 roleId, 
                 request.Users.UserRole);
             _eventBus.Publish<UserUpdatedEvent>(userUpdatedEvent, "user.updated");

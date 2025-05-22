@@ -34,11 +34,6 @@ namespace Users.Domain.Entities
         [BsonElement("updatedBy")]
         public string? UpdatedBy { get; set; }
 
-        [BsonElement("userConfirmation")]
-        public bool UserConfirmation { get; set; }
-
-        [BsonElement("userPassword")]
-        public string UserPassword { get; set; }
         public string? UserRole { get; set; }
 
     }

@@ -11,12 +11,10 @@ namespace Users.Domain.Entities
         public DateTime CreatedAt { get; set; }
         public string? CreatedBy { get; set; }
         public DateTime? UpdatedAt { get; set; }
-        public string? UpdatedBy { get; set; }
-        public bool UserConfirmation { get; set; }   
-        public string UserPassword { get; private set; }
+        public string? UpdatedBy { get; set; } 
         public ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
 
-        public User(string UserName, string UserLastName, string UserEmail, string UserPhoneNumber, string UserDirection, string UserPassword)
+        public User(string UserName, string UserLastName, string UserEmail, string UserPhoneNumber, string UserDirection)
         {
             UserId = Guid.NewGuid();
             this.UserName = UserName;
@@ -24,8 +22,6 @@ namespace Users.Domain.Entities
             this.UserEmail = UserEmail;
             this.UserPhoneNumber = UserPhoneNumber;
             this.UserDirection = UserDirection;
-            this.UserPassword = UserPassword;
-            this.UserConfirmation = false;
             this.CreatedAt = DateTime.UtcNow;
         }
 
@@ -54,9 +50,5 @@ namespace Users.Domain.Entities
             UserDirection = userDirection;
         }
 
-        public void UpdateUserPassword(string userPassword)
-        {
-            UserPassword = userPassword;
-        }
     }
 }

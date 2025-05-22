@@ -9,7 +9,6 @@ namespace Users.Application.DTO.Request
         public string? UserPhoneNumber { get; set; }
         public string? UserDirection { get; set; }
         public string? UserPassword { get; set; }
-        public bool UserConfirmation { get; set; }
         public string UserRole { get; set; } 
     }
 }

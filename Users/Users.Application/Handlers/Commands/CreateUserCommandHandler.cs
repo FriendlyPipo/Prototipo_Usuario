@@ -6,7 +6,6 @@
     using Users.Infrastructure.Database;
     using Users.Core.Repositories;
     using Users.Infrastructure.Exceptions;
-    using Users.Infrastructure.Interfaces;
     using Users.Application.UserValidations;
     using Users.Application.DTO.Request; 
     using Users.Infrastructure.EventBus;
@@ -42,8 +41,7 @@
                         request.Users.UserLastName,
                         request.Users.UserEmail,
                         request.Users.UserPhoneNumber,
-                        request.Users.UserDirection,
-                        request.Users.UserPassword
+                        request.Users.UserDirection
                     );
 
                     if (!string.IsNullOrEmpty(request.Users.UserRole))
@@ -68,23 +66,33 @@
                     await _dbContext.SaveChangesAsync();
 
                         //Registrar en MongoDB
-                var userCreatedEvent = new UserCreatedEvent(newUser.UserId, newUser.UserName, newUser.UserLastName, newUser.UserEmail, newUser.UserPhoneNumber, newUser.UserDirection, newUser.CreatedAt, newUser.CreatedBy, newUser.UpdatedAt, newUser.UpdatedBy, newUser.UserConfirmation, newUser.UserPassword,roleId, request.Users.UserRole);
+                var userCreatedEvent = new UserCreatedEvent(newUser.UserId, newUser.UserName, newUser.UserLastName, newUser.UserEmail, newUser.UserPhoneNumber, newUser.UserDirection, newUser.CreatedAt, newUser.CreatedBy, newUser.UpdatedAt, newUser.UpdatedBy,roleId, request.Users.UserRole);
                 _eventBus.Publish<UserCreatedEvent>(userCreatedEvent, "user.created");   
 
                     // Crear usuario en Keycloak
             var token = await _keycloakRepository.GetTokenAsync();
-            var KcUser = new 
+            var KcUser = new
             {
                 username = request.Users.UserEmail,
                 email = request.Users.UserEmail,
                 enabled = true,
                 firstName = request.Users.UserName,
-                lastName = request.Users.UserLastName,  
-                credentials = new [] { new { type = "password", value = request.Users.UserPassword, temporary = false } },
+                lastName = request.Users.UserLastName,
+                credentials = new[] { new { type = "password", value = request.Users.UserPassword, temporary = false } },
+                requiredActions = new[] { "VERIFY_EMAIL" },
             };
-
             var createUserResponseJson = await _keycloakRepository.CreateUserAsync(KcUser, token);
+            string keycloakUserId = await _keycloakRepository.GetUserIdAsync(KcUser.username, token);
 
+            try
+            {
+                await _keycloakRepository.SendVerificationEmailAsync(keycloakUserId, token);
+
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine($"Error al solicitar envío de email de verificación a Keycloak para usuario {keycloakUserId}: {ex.Message}");
+            }
 
                 return "Usuario Registrado Correctamente";
                  

@@ -6,7 +6,6 @@ using Users.Core.Repositories;
 using Users.Core.Events;
 using Users.Infrastructure.Database;
 using Users.Infrastructure.Exceptions;
-using Users.Infrastructure.Interfaces;
 using Users.Infrastructure.EventBus.Events;
 using Users.Infrastructure.EventBus;
 

@@ -47,9 +47,7 @@ namespace Users.Infrastructure.EventBus.Consumers
                             CreatedAt = @event.CreatedAt,
                             CreatedBy = @event.CreatedBy,
                             UpdatedAt = @event.UpdatedAt,
-                            UpdatedBy = @event.UpdatedBy,
-                            UserConfirmation = @event.UserConfirmation,
-                            UserPassword = @event.UserPassword
+                            UpdatedBy = @event.UpdatedBy
                         };
 
                         var roleDoc = new MongoRoleDocument
