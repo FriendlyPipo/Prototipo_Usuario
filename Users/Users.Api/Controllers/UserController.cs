@@ -25,7 +25,7 @@ namespace Users.Api.Controllers
         }
 
         [HttpPost("CreateUser")]
-        [Authorize] 
+        [AllowAnonymous] 
         public async Task<IActionResult> CreateUser( CreateUserDTO createUserDTO) 
         {
             try

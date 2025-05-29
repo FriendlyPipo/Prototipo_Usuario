@@ -35,11 +35,11 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     {
         options.RequireHttpsMetadata = false;
         options.Audience = "public-client";
-        options.Authority = "http://localhost:8080/realms/Artened";
+        options.Authority = "http://localhost:8180/realms/Artened";
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuer = true,
-            ValidIssuer = "http://localhost:8080/realms/Artened",
+            ValidIssuer = "http://localhost:8180/realms/Artened",
             ValidateAudience = true,
             ValidAudience = "public-client",
             ValidateLifetime = true,

@@ -30,7 +30,7 @@ namespace Users.Application.UserValidations
 
             RuleFor(x => x.UserRole)
                 .NotEmpty().WithMessage("El rol es requerido.")
-                .Must(role => role == "Postor" || role == "Subastador " || role == "Administrador" || role == "Soporte");
+                .Must(role => role == "Postor" || role == "Subastador" || role == "Administrador" || role == "Soporte");
         }
          public virtual async Task<bool> ValidateRequest(CreateUserDTO request)
         {
