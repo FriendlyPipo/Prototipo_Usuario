@@ -1,0 +1,2140 @@
+SF:C:\Prueba_Vscode\Users\Users.Api\Controllers\UserController.cs
+FN:20,System.Void Users.Api.Controllers.UserController::.ctor(MediatR.IMediator,Microsoft.Extensions.Logging.ILogger`1<Users.Api.Controllers.UserController>)
+FNDA:12,System.Void Users.Api.Controllers.UserController::.ctor(MediatR.IMediator,Microsoft.Extensions.Logging.ILogger`1<Users.Api.Controllers.UserController>)
+DA:21,12
+DA:22,12
+DA:23,12
+DA:24,12
+DA:25,12
+FN:29,System.Void Users.Api.Controllers.UserController/<CreateUser>d__3::MoveNext()
+FNDA:2,System.Void Users.Api.Controllers.UserController/<CreateUser>d__3::MoveNext()
+DA:30,2
+DA:32,2
+DA:33,2
+DA:34,2
+DA:35,1
+DA:36,1
+DA:38,1
+DA:39,1
+DA:40,1
+DA:41,1
+DA:43,2
+FN:47,System.Void Users.Api.Controllers.UserController/<DeleteUser>d__4::MoveNext()
+FNDA:2,System.Void Users.Api.Controllers.UserController/<DeleteUser>d__4::MoveNext()
+DA:48,2
+DA:50,2
+DA:51,2
+DA:52,2
+DA:53,1
+DA:54,1
+DA:56,1
+DA:57,1
+DA:58,1
+DA:59,1
+DA:61,2
+FN:122,System.Void Users.Api.Controllers.UserController/<ForgotPassword>d__8::MoveNext()
+FNDA:2,System.Void Users.Api.Controllers.UserController/<ForgotPassword>d__8::MoveNext()
+DA:123,2
+DA:124,2
+DA:125,0
+DA:126,0
+DA:127,0
+DA:131,2
+DA:132,2
+DA:133,2
+DA:135,1
+DA:137,1
+DA:138,1
+DA:139,1
+DA:140,1
+DA:142,2
+BRDA:124,36,0,0
+BRDA:124,36,1,2
+FN:105,System.Void Users.Api.Controllers.UserController/<GetAllUsers>d__7::MoveNext()
+FNDA:2,System.Void Users.Api.Controllers.UserController/<GetAllUsers>d__7::MoveNext()
+DA:106,2
+DA:108,2
+DA:109,2
+DA:110,2
+DA:111,1
+DA:112,1
+DA:114,1
+DA:115,1
+DA:116,1
+DA:117,1
+DA:119,2
+BRDA:111,212,0,0
+BRDA:111,212,1,1
+FN:83,System.Void Users.Api.Controllers.UserController/<GetUserById>d__6::MoveNext()
+FNDA:2,System.Void Users.Api.Controllers.UserController/<GetUserById>d__6::MoveNext()
+DA:84,2
+DA:86,2
+DA:87,2
+DA:88,2
+DA:89,2
+DA:90,1
+DA:91,1
+DA:92,1
+DA:94,1
+DA:96,0
+DA:97,0
+DA:98,0
+DA:99,0
+DA:101,2
+BRDA:89,203,0,1
+BRDA:89,203,1,1
+FN:65,System.Void Users.Api.Controllers.UserController/<UpdateUser>d__5::MoveNext()
+FNDA:2,System.Void Users.Api.Controllers.UserController/<UpdateUser>d__5::MoveNext()
+DA:66,2
+DA:68,2
+DA:69,2
+DA:70,2
+DA:71,1
+DA:72,1
+DA:74,1
+DA:75,1
+DA:76,1
+DA:77,1
+DA:79,2
+LF:77
+LH:70
+BRF:6
+BRH:4
+FNF:7
+FNH:7
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Application\Validations\UserValidation.cs
+FN:8,System.Void Users.Application.UserValidations.UserValidation::.ctor()
+FNDA:7,System.Void Users.Application.UserValidations.UserValidation::.ctor()
+DA:9,7
+DA:10,7
+DA:11,7
+DA:12,7
+DA:13,7
+DA:15,7
+DA:16,7
+DA:17,7
+DA:19,7
+DA:20,7
+DA:21,7
+DA:23,7
+DA:24,7
+DA:25,7
+DA:27,7
+DA:28,7
+DA:29,7
+DA:31,7
+DA:32,7
+DA:33,7
+FN:38,System.String Users.Application.UserValidations.UserValidation/<>c::<ValidateRequest>b__1_0(FluentValidation.Results.ValidationFailure)
+FNDA:9,System.String Users.Application.UserValidations.UserValidation/<>c::<ValidateRequest>b__1_0(FluentValidation.Results.ValidationFailure)
+DA:39,9
+FN:34,System.Void Users.Application.UserValidations.UserValidation/<ValidateRequest>d__1::MoveNext()
+FNDA:7,System.Void Users.Application.UserValidations.UserValidation/<ValidateRequest>d__1::MoveNext()
+DA:35,7
+DA:36,7
+DA:37,7
+DA:38,1
+DA:40,1
+DA:43,6
+DA:44,6
+BRDA:37,174,0,1
+BRDA:37,174,1,6
+LF:28
+LH:28
+BRF:2
+BRH:2
+FNF:3
+FNH:3
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Application\Queries\GetUserByIdQuery.cs
+FN:8,System.Guid Users.Application.Queries.GetUserByIdQuery::get_UserId()
+FNDA:10,System.Guid Users.Application.Queries.GetUserByIdQuery::get_UserId()
+DA:9,10
+FN:10,System.Void Users.Application.Queries.GetUserByIdQuery::.ctor(System.Guid)
+FNDA:6,System.Void Users.Application.Queries.GetUserByIdQuery::.ctor(System.Guid)
+DA:11,6
+DA:12,6
+DA:13,6
+DA:14,6
+LF:5
+LH:5
+BRF:0
+BRH:0
+FNF:2
+FNH:2
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Application\Handlers\Queries\GetAllUsersQeuryHandler.cs
+FN:15,System.Void Users.Application.Handlers.Queries.GetAllUsersQueryHandler::.ctor(Users.Core.Repositories.IUserReadRepository,Microsoft.Extensions.Logging.ILogger`1<Users.Application.Handlers.Queries.GetAllUsersQueryHandler>)
+FNDA:4,System.Void Users.Application.Handlers.Queries.GetAllUsersQueryHandler::.ctor(Users.Core.Repositories.IUserReadRepository,Microsoft.Extensions.Logging.ILogger`1<Users.Application.Handlers.Queries.GetAllUsersQueryHandler>)
+DA:16,4
+DA:17,4
+DA:18,4
+DA:19,4
+DA:20,4
+FN:31,Users.Application.DTO.Respond.GetUserDTO Users.Application.Handlers.Queries.GetAllUsersQueryHandler/<>c::<Handle>b__3_0(Users.Domain.Entities.MongoUserDocument)
+FNDA:3,Users.Application.DTO.Respond.GetUserDTO Users.Application.Handlers.Queries.GetAllUsersQueryHandler/<>c::<Handle>b__3_0(Users.Domain.Entities.MongoUserDocument)
+DA:32,3
+DA:33,3
+DA:34,3
+DA:35,3
+DA:36,3
+DA:37,3
+DA:38,3
+DA:39,3
+DA:40,3
+DA:41,3
+FN:22,System.Void Users.Application.Handlers.Queries.GetAllUsersQueryHandler/<Handle>d__3::MoveNext()
+FNDA:4,System.Void Users.Application.Handlers.Queries.GetAllUsersQueryHandler/<Handle>d__3::MoveNext()
+DA:23,4
+DA:24,4
+DA:25,4
+DA:27,3
+DA:28,2
+DA:29,2
+DA:43,3
+DA:44,3
+DA:45,3
+DA:46,3
+DA:48,1
+BRDA:27,160,0,2
+BRDA:27,160,1,1
+BRDA:27,183,0,2
+BRDA:27,183,1,1
+LF:26
+LH:26
+BRF:4
+BRH:4
+FNF:3
+FNH:3
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Application\Handlers\Queries\GetUserByIdQueryHandler.cs
+FN:15,System.Void Users.Application.Handlers.Queries.GetUserByIdQueryHandler::.ctor(Users.Core.Repositories.IUserReadRepository,Microsoft.Extensions.Logging.ILogger`1<Users.Application.Handlers.Queries.GetUserByIdQueryHandler>)
+FNDA:4,System.Void Users.Application.Handlers.Queries.GetUserByIdQueryHandler::.ctor(Users.Core.Repositories.IUserReadRepository,Microsoft.Extensions.Logging.ILogger`1<Users.Application.Handlers.Queries.GetUserByIdQueryHandler>)
+DA:16,4
+DA:17,4
+DA:18,4
+DA:19,4
+DA:20,4
+FN:22,System.Void Users.Application.Handlers.Queries.GetUserByIdQueryHandler/<Handle>d__3::MoveNext()
+FNDA:4,System.Void Users.Application.Handlers.Queries.GetUserByIdQueryHandler/<Handle>d__3::MoveNext()
+DA:23,4
+DA:25,4
+DA:26,4
+DA:28,3
+DA:29,2
+DA:30,2
+DA:33,1
+DA:34,1
+DA:35,1
+DA:36,1
+DA:37,1
+DA:38,1
+DA:39,1
+DA:40,1
+DA:41,1
+DA:42,1
+DA:44,3
+DA:45,3
+DA:46,3
+DA:47,3
+DA:49,1
+BRDA:28,178,0,2
+BRDA:28,178,1,1
+LF:26
+LH:26
+BRF:2
+BRH:2
+FNF:2
+FNH:2
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Application\Handlers\Commands\CreateUserCommandHandler.cs
+FN:26,System.Void Users.Application.Handlers.Commands.CreateUserCommandHandler::.ctor(Users.Core.Events.IEventBus,Users.Core.Repositories.IUserWriteRepository,Users.Infrastructure.Database.UserDbContext,Users.Core.Repositories.IKeycloakRepository,Microsoft.Extensions.Logging.ILogger`1<Users.Application.Handlers.Commands.CreateUserCommandHandler>)
+FNDA:5,System.Void Users.Application.Handlers.Commands.CreateUserCommandHandler::.ctor(Users.Core.Events.IEventBus,Users.Core.Repositories.IUserWriteRepository,Users.Infrastructure.Database.UserDbContext,Users.Core.Repositories.IKeycloakRepository,Microsoft.Extensions.Logging.ILogger`1<Users.Application.Handlers.Commands.CreateUserCommandHandler>)
+DA:27,5
+DA:28,5
+DA:29,5
+DA:30,5
+DA:31,5
+DA:32,5
+DA:33,5
+DA:34,5
+DA:35,5
+DA:36,5
+DA:37,5
+DA:38,5
+DA:39,5
+FN:41,System.Void Users.Application.Handlers.Commands.CreateUserCommandHandler/<Handle>d__6::MoveNext()
+FNDA:5,System.Void Users.Application.Handlers.Commands.CreateUserCommandHandler/<Handle>d__6::MoveNext()
+DA:42,5
+DA:44,5
+DA:45,5
+DA:46,5
+DA:49,5
+DA:51,5
+DA:52,5
+DA:53,5
+DA:54,5
+DA:55,5
+DA:56,5
+DA:57,5
+DA:59,5
+DA:60,5
+DA:61,5
+DA:62,4
+DA:63,4
+DA:64,4
+DA:65,4
+DA:66,4
+DA:67,4
+DA:68,4
+DA:69,4
+DA:70,4
+DA:72,1
+DA:73,1
+DA:75,4
+DA:77,4
+DA:78,4
+DA:80,4
+DA:81,4
+DA:82,4
+DA:83,4
+DA:86,3
+DA:87,3
+DA:88,3
+DA:89,3
+DA:90,3
+DA:91,3
+DA:92,3
+DA:93,3
+DA:94,3
+DA:95,3
+DA:96,3
+DA:97,3
+DA:98,3
+DA:99,3
+DA:100,3
+DA:103,3
+DA:104,2
+DA:105,2
+DA:106,2
+DA:107,2
+DA:108,2
+DA:109,2
+DA:110,2
+DA:111,2
+DA:112,2
+DA:113,2
+DA:116,2
+DA:117,2
+DA:118,2
+DA:121,2
+DA:122,2
+DA:123,1
+DA:124,1
+DA:125,1
+DA:126,1
+DA:127,1
+DA:128,1
+DA:131,1
+DA:132,1
+DA:133,1
+DA:135,1
+DA:136,1
+DA:137,1
+DA:138,1
+DA:139,1
+DA:141,0
+DA:142,1
+DA:143,1
+DA:144,1
+DA:145,1
+DA:146,1
+DA:148,0
+DA:149,0
+DA:150,4
+DA:151,4
+DA:152,4
+DA:153,4
+DA:155,1
+BRDA:59,344,0,5
+BRDA:61,381,0,4
+BRDA:61,381,1,1
+BRDA:59,344,1,4
+BRDA:77,686,0,4
+BRDA:77,686,1,4
+LF:104
+LH:101
+BRF:6
+BRH:6
+FNF:2
+FNH:2
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Application\Handlers\Commands\DeleteUserCommandHandler.cs
+FN:22,System.Void Users.Application.Handlers.Commands.DeleteUserCommandHandler::.ctor(Users.Core.Events.IEventBus,Users.Core.Repositories.IUserWriteRepository,Users.Infrastructure.Database.UserDbContext,Users.Core.Repositories.IKeycloakRepository,Microsoft.Extensions.Logging.ILogger`1<Users.Application.Handlers.Commands.DeleteUserCommandHandler>)
+FNDA:7,System.Void Users.Application.Handlers.Commands.DeleteUserCommandHandler::.ctor(Users.Core.Events.IEventBus,Users.Core.Repositories.IUserWriteRepository,Users.Infrastructure.Database.UserDbContext,Users.Core.Repositories.IKeycloakRepository,Microsoft.Extensions.Logging.ILogger`1<Users.Application.Handlers.Commands.DeleteUserCommandHandler>)
+DA:23,7
+DA:24,7
+DA:25,7
+DA:26,7
+DA:27,7
+DA:28,7
+DA:29,7
+DA:30,7
+DA:31,7
+DA:32,7
+DA:33,7
+DA:34,7
+DA:35,7
+FN:37,System.Void Users.Application.Handlers.Commands.DeleteUserCommandHandler/<Handle>d__6::MoveNext()
+FNDA:7,System.Void Users.Application.Handlers.Commands.DeleteUserCommandHandler/<Handle>d__6::MoveNext()
+DA:38,7
+DA:39,7
+DA:41,7
+DA:42,7
+DA:43,1
+DA:44,1
+DA:47,6
+DA:49,6
+DA:50,6
+DA:51,5
+DA:53,4
+DA:54,1
+DA:55,1
+DA:56,1
+DA:57,1
+DA:60,3
+DA:61,3
+DA:63,3
+DA:64,3
+DA:66,3
+DA:67,1
+DA:68,1
+DA:71,2
+DA:72,2
+DA:73,1
+DA:74,1
+DA:77,1
+DA:78,1
+DA:80,1
+DA:81,1
+DA:83,1
+DA:84,1
+DA:85,1
+DA:86,1
+DA:87,1
+DA:89,2
+DA:90,2
+DA:91,2
+DA:92,2
+DA:93,2
+DA:95,2
+DA:96,1
+DA:97,1
+DA:98,1
+DA:99,1
+DA:101,1
+BRDA:42,294,0,1
+BRDA:42,294,1,6
+BRDA:53,939,0,1
+BRDA:53,939,1,3
+BRDA:66,1556,0,1
+BRDA:66,1556,1,2
+BRDA:72,1742,0,1
+BRDA:72,1742,1,1
+BRDA:95,2075,1,1
+BRDA:95,2075,2,2
+BRDA:95,2075,3,1
+BRDA:95,2075,0,0
+LF:59
+LH:59
+BRF:12
+BRH:11
+FNF:2
+FNH:2
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Application\Handlers\Commands\ForgotPasswordCommandHandler.cs
+FN:13,System.Void Users.Application.Handlers.Commands.ForgotPasswordCommandHandler::.ctor(Users.Core.Repositories.IKeycloakRepository,Microsoft.Extensions.Logging.ILogger`1<Users.Application.Handlers.Commands.ForgotPasswordCommandHandler>)
+FNDA:3,System.Void Users.Application.Handlers.Commands.ForgotPasswordCommandHandler::.ctor(Users.Core.Repositories.IKeycloakRepository,Microsoft.Extensions.Logging.ILogger`1<Users.Application.Handlers.Commands.ForgotPasswordCommandHandler>)
+DA:14,3
+DA:15,3
+DA:16,3
+DA:17,3
+DA:18,3
+FN:20,System.Void Users.Application.Handlers.Commands.ForgotPasswordCommandHandler/<Handle>d__3::MoveNext()
+FNDA:3,System.Void Users.Application.Handlers.Commands.ForgotPasswordCommandHandler/<Handle>d__3::MoveNext()
+DA:21,3
+DA:22,3
+DA:24,3
+DA:26,3
+DA:27,3
+DA:28,3
+DA:29,1
+DA:30,2
+DA:31,2
+DA:32,2
+DA:33,2
+DA:36,1
+DA:37,1
+LF:18
+LH:18
+BRF:0
+BRH:0
+FNF:2
+FNH:2
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Application\Handlers\Commands\UpdateUserCommandHandler.cs
+FN:26,System.Void Users.Application.Handlers.Commands.UpdateUserCommandHandler::.ctor(Users.Core.Events.IEventBus,Users.Core.Repositories.IUserWriteRepository,Users.Infrastructure.Database.UserDbContext,Users.Core.Repositories.IKeycloakRepository,Microsoft.Extensions.Logging.ILogger`1<Users.Application.Handlers.Commands.UpdateUserCommandHandler>)
+FNDA:7,System.Void Users.Application.Handlers.Commands.UpdateUserCommandHandler::.ctor(Users.Core.Events.IEventBus,Users.Core.Repositories.IUserWriteRepository,Users.Infrastructure.Database.UserDbContext,Users.Core.Repositories.IKeycloakRepository,Microsoft.Extensions.Logging.ILogger`1<Users.Application.Handlers.Commands.UpdateUserCommandHandler>)
+DA:27,7
+DA:28,7
+DA:29,7
+DA:30,7
+DA:31,7
+DA:32,7
+DA:33,7
+DA:34,7
+FN:36,System.Void Users.Application.Handlers.Commands.UpdateUserCommandHandler/<Handle>d__6::MoveNext()
+FNDA:7,System.Void Users.Application.Handlers.Commands.UpdateUserCommandHandler/<Handle>d__6::MoveNext()
+DA:37,7
+DA:39,7
+DA:40,1
+DA:41,1
+DA:44,6
+DA:45,6
+DA:46,6
+DA:48,6
+DA:50,6
+DA:51,6
+DA:52,10
+DA:53,10
+DA:54,10
+DA:55,10
+DA:57,6
+DA:58,6
+DA:60,6
+DA:61,4
+DA:62,4
+DA:63,4
+DA:64,4
+DA:65,4
+DA:66,4
+DA:67,4
+DA:68,4
+DA:69,4
+DA:70,4
+DA:72,1
+DA:73,1
+DA:74,1
+DA:76,5
+DA:77,5
+DA:79,5
+DA:80,5
+DA:81,5
+DA:82,5
+DA:83,5
+DA:84,5
+DA:85,5
+DA:86,5
+DA:87,5
+DA:88,5
+DA:89,5
+DA:90,5
+DA:91,5
+DA:93,5
+DA:95,5
+DA:96,5
+DA:98,5
+DA:99,0
+DA:100,0
+DA:104,5
+DA:105,1
+DA:106,1
+DA:107,1
+DA:108,1
+DA:109,1
+DA:110,1
+DA:111,1
+DA:112,1
+DA:113,1
+DA:114,1
+DA:115,1
+DA:117,4
+DA:118,4
+DA:119,4
+DA:120,4
+DA:121,4
+DA:122,4
+DA:123,4
+DA:124,4
+DA:125,4
+DA:126,4
+DA:129,5
+DA:130,5
+DA:131,4
+DA:132,1
+DA:133,1
+DA:134,1
+DA:135,1
+DA:136,1
+DA:137,1
+DA:138,1
+DA:141,4
+DA:143,4
+DA:145,2
+DA:146,2
+DA:147,2
+DA:148,2
+DA:150,2
+DA:151,2
+DA:152,2
+DA:153,1
+DA:154,1
+DA:157,1
+DA:159,4
+BRDA:39,123,0,1
+BRDA:39,123,1,6
+BRDA:48,512,0,6
+BRDA:48,512,1,6
+BRDA:52,668,0,4
+BRDA:52,668,1,6
+BRDA:53,726,0,4
+BRDA:53,726,1,6
+BRDA:54,784,0,4
+BRDA:54,784,1,6
+BRDA:55,842,0,4
+BRDA:55,842,1,6
+BRDA:60,1185,0,4
+BRDA:60,1185,1,1
+BRDA:98,2114,0,0
+BRDA:98,2114,1,5
+BRDA:104,2162,0,1
+BRDA:106,2219,0,0
+BRDA:106,2219,1,1
+BRDA:106,2255,0,0
+BRDA:106,2255,1,1
+BRDA:104,2162,1,4
+BRDA:118,2375,0,1
+BRDA:118,2375,1,4
+BRDA:118,2411,0,1
+BRDA:118,2411,1,4
+BRDA:150,2997,0,1
+BRDA:150,3010,0,1
+BRDA:150,2997,1,1
+BRDA:150,3010,1,1
+BRDA:150,3033,0,1
+BRDA:150,3033,1,1
+LF:104
+LH:102
+BRF:32
+BRH:29
+FNF:2
+FNH:2
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Application\DTOs\Respond\GetUserDTO.cs
+FN:4,System.Guid Users.Application.DTO.Respond.GetUserDTO::get_UserId()
+FNDA:11,System.Guid Users.Application.DTO.Respond.GetUserDTO::get_UserId()
+DA:5,11
+FN:5,System.String Users.Application.DTO.Respond.GetUserDTO::get_UserName()
+FNDA:9,System.String Users.Application.DTO.Respond.GetUserDTO::get_UserName()
+DA:6,9
+FN:6,System.String Users.Application.DTO.Respond.GetUserDTO::get_UserLastName()
+FNDA:9,System.String Users.Application.DTO.Respond.GetUserDTO::get_UserLastName()
+DA:7,9
+FN:7,System.String Users.Application.DTO.Respond.GetUserDTO::get_UserEmail()
+FNDA:9,System.String Users.Application.DTO.Respond.GetUserDTO::get_UserEmail()
+DA:8,9
+FN:8,System.String Users.Application.DTO.Respond.GetUserDTO::get_UserPhoneNumber()
+FNDA:6,System.String Users.Application.DTO.Respond.GetUserDTO::get_UserPhoneNumber()
+DA:9,6
+FN:9,System.String Users.Application.DTO.Respond.GetUserDTO::get_UserDirection()
+FNDA:6,System.String Users.Application.DTO.Respond.GetUserDTO::get_UserDirection()
+DA:10,6
+FN:10,System.String Users.Application.DTO.Respond.GetUserDTO::get_UserRole()
+FNDA:6,System.String Users.Application.DTO.Respond.GetUserDTO::get_UserRole()
+DA:11,6
+FN:2,System.Void Users.Application.DTO.Respond.GetUserDTO::.ctor(Users.Application.DTO.Respond.GetUserDTO)
+FNDA:0,System.Void Users.Application.DTO.Respond.GetUserDTO::.ctor(Users.Application.DTO.Respond.GetUserDTO)
+DA:3,0
+LF:8
+LH:7
+BRF:0
+BRH:0
+FNF:8
+FNH:7
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Application\DTOs\Request\CreateUserDTO.cs
+FN:4,System.String Users.Application.DTO.Request.CreateUserDTO::get_UserName()
+FNDA:23,System.String Users.Application.DTO.Request.CreateUserDTO::get_UserName()
+DA:5,23
+FN:5,System.String Users.Application.DTO.Request.CreateUserDTO::get_UserLastName()
+FNDA:23,System.String Users.Application.DTO.Request.CreateUserDTO::get_UserLastName()
+DA:6,23
+FN:6,System.String Users.Application.DTO.Request.CreateUserDTO::get_UserEmail()
+FNDA:29,System.String Users.Application.DTO.Request.CreateUserDTO::get_UserEmail()
+DA:7,29
+FN:7,System.String Users.Application.DTO.Request.CreateUserDTO::get_UserPhoneNumber()
+FNDA:21,System.String Users.Application.DTO.Request.CreateUserDTO::get_UserPhoneNumber()
+DA:8,21
+FN:8,System.String Users.Application.DTO.Request.CreateUserDTO::get_UserDirection()
+FNDA:21,System.String Users.Application.DTO.Request.CreateUserDTO::get_UserDirection()
+DA:9,21
+FN:9,System.String Users.Application.DTO.Request.CreateUserDTO::get_UserRole()
+FNDA:30,System.String Users.Application.DTO.Request.CreateUserDTO::get_UserRole()
+DA:10,30
+FN:10,System.String Users.Application.DTO.Request.CreateUserDTO::get_UserPassword()
+FNDA:11,System.String Users.Application.DTO.Request.CreateUserDTO::get_UserPassword()
+DA:11,11
+FN:2,System.Void Users.Application.DTO.Request.CreateUserDTO::.ctor(Users.Application.DTO.Request.CreateUserDTO)
+FNDA:0,System.Void Users.Application.DTO.Request.CreateUserDTO::.ctor(Users.Application.DTO.Request.CreateUserDTO)
+DA:3,0
+LF:8
+LH:7
+BRF:0
+BRH:0
+FNF:8
+FNH:7
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Application\DTOs\Request\DeleteUserDTO.cs
+FN:4,System.Guid Users.Application.DTO.Request.DeleteUserDTO::get_UserId()
+FNDA:29,System.Guid Users.Application.DTO.Request.DeleteUserDTO::get_UserId()
+DA:5,29
+FN:2,System.Void Users.Application.DTO.Request.DeleteUserDTO::.ctor(Users.Application.DTO.Request.DeleteUserDTO)
+FNDA:0,System.Void Users.Application.DTO.Request.DeleteUserDTO::.ctor(Users.Application.DTO.Request.DeleteUserDTO)
+DA:3,0
+LF:2
+LH:1
+BRF:0
+BRH:0
+FNF:2
+FNH:1
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Application\DTOs\Request\ForgotPasswordDTO.cs
+FN:4,System.String Users.Application.DTO.Request.ForgotPasswordDTO::get_UserEmail()
+FNDA:14,System.String Users.Application.DTO.Request.ForgotPasswordDTO::get_UserEmail()
+DA:5,14
+FN:2,System.Void Users.Application.DTO.Request.ForgotPasswordDTO::.ctor(Users.Application.DTO.Request.ForgotPasswordDTO)
+FNDA:0,System.Void Users.Application.DTO.Request.ForgotPasswordDTO::.ctor(Users.Application.DTO.Request.ForgotPasswordDTO)
+DA:3,0
+LF:2
+LH:1
+BRF:0
+BRH:0
+FNF:2
+FNH:1
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Application\DTOs\Request\UpdateUserDTO.cs
+FN:4,System.Guid Users.Application.DTO.Request.UpdateUserDTO::get_UserId()
+FNDA:15,System.Guid Users.Application.DTO.Request.UpdateUserDTO::get_UserId()
+DA:5,15
+FN:5,System.String Users.Application.DTO.Request.UpdateUserDTO::get_UserName()
+FNDA:22,System.String Users.Application.DTO.Request.UpdateUserDTO::get_UserName()
+DA:6,22
+FN:6,System.String Users.Application.DTO.Request.UpdateUserDTO::get_UserLastName()
+FNDA:22,System.String Users.Application.DTO.Request.UpdateUserDTO::get_UserLastName()
+DA:7,22
+FN:7,System.String Users.Application.DTO.Request.UpdateUserDTO::get_UserEmail()
+FNDA:29,System.String Users.Application.DTO.Request.UpdateUserDTO::get_UserEmail()
+DA:8,29
+FN:8,System.String Users.Application.DTO.Request.UpdateUserDTO::get_UserPhoneNumber()
+FNDA:15,System.String Users.Application.DTO.Request.UpdateUserDTO::get_UserPhoneNumber()
+DA:9,15
+FN:9,System.String Users.Application.DTO.Request.UpdateUserDTO::get_UserDirection()
+FNDA:15,System.String Users.Application.DTO.Request.UpdateUserDTO::get_UserDirection()
+DA:10,15
+FN:10,System.String Users.Application.DTO.Request.UpdateUserDTO::get_UserPassword()
+FNDA:9,System.String Users.Application.DTO.Request.UpdateUserDTO::get_UserPassword()
+DA:11,9
+FN:11,System.String Users.Application.DTO.Request.UpdateUserDTO::get_UserRole()
+FNDA:21,System.String Users.Application.DTO.Request.UpdateUserDTO::get_UserRole()
+DA:12,21
+FN:2,System.Void Users.Application.DTO.Request.UpdateUserDTO::.ctor(Users.Application.DTO.Request.UpdateUserDTO)
+FNDA:0,System.Void Users.Application.DTO.Request.UpdateUserDTO::.ctor(Users.Application.DTO.Request.UpdateUserDTO)
+DA:3,0
+LF:9
+LH:8
+BRF:0
+BRH:0
+FNF:9
+FNH:8
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Application\Commands\CreateUserCommand.cs
+FN:8,Users.Application.DTO.Request.CreateUserDTO Users.Application.Commands.CreateUserCommand::get_Users()
+FNDA:65,Users.Application.DTO.Request.CreateUserDTO Users.Application.Commands.CreateUserCommand::get_Users()
+DA:9,65
+FN:10,System.Void Users.Application.Commands.CreateUserCommand::.ctor(Users.Application.DTO.Request.CreateUserDTO)
+FNDA:7,System.Void Users.Application.Commands.CreateUserCommand::.ctor(Users.Application.DTO.Request.CreateUserDTO)
+DA:11,7
+DA:12,7
+DA:13,7
+DA:14,7
+LF:5
+LH:5
+BRF:0
+BRH:0
+FNF:2
+FNH:2
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Application\Commands\DeleteUserCommand.cs
+FN:8,Users.Application.DTO.Request.DeleteUserDTO Users.Application.Commands.DeleteUserCommand::get_Users()
+FNDA:29,Users.Application.DTO.Request.DeleteUserDTO Users.Application.Commands.DeleteUserCommand::get_Users()
+DA:9,29
+FN:10,System.Void Users.Application.Commands.DeleteUserCommand::.ctor(Users.Application.DTO.Request.DeleteUserDTO)
+FNDA:9,System.Void Users.Application.Commands.DeleteUserCommand::.ctor(Users.Application.DTO.Request.DeleteUserDTO)
+DA:11,9
+DA:12,9
+DA:13,9
+DA:14,9
+LF:5
+LH:5
+BRF:0
+BRH:0
+FNF:2
+FNH:2
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Application\Commands\ForgotPasswordCommand.cs
+FN:8,Users.Application.DTO.Request.ForgotPasswordDTO Users.Application.Commands.ForgotPasswordCommand::get_Users()
+FNDA:8,Users.Application.DTO.Request.ForgotPasswordDTO Users.Application.Commands.ForgotPasswordCommand::get_Users()
+DA:9,8
+FN:10,System.Void Users.Application.Commands.ForgotPasswordCommand::.ctor(Users.Application.DTO.Request.ForgotPasswordDTO)
+FNDA:5,System.Void Users.Application.Commands.ForgotPasswordCommand::.ctor(Users.Application.DTO.Request.ForgotPasswordDTO)
+DA:11,5
+DA:12,5
+DA:13,5
+DA:14,5
+LF:5
+LH:5
+BRF:0
+BRH:0
+FNF:2
+FNH:2
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Application\Commands\UpdateUserCommand.cs
+FN:8,Users.Application.DTO.Request.UpdateUserDTO Users.Application.Commands.UpdateUserCommand::get_Users()
+FNDA:101,Users.Application.DTO.Request.UpdateUserDTO Users.Application.Commands.UpdateUserCommand::get_Users()
+DA:9,101
+FN:10,System.Void Users.Application.Commands.UpdateUserCommand::.ctor(Users.Application.DTO.Request.UpdateUserDTO)
+FNDA:9,System.Void Users.Application.Commands.UpdateUserCommand::.ctor(Users.Application.DTO.Request.UpdateUserDTO)
+DA:11,9
+DA:12,9
+DA:13,9
+DA:14,9
+LF:5
+LH:5
+BRF:0
+BRH:0
+FNF:2
+FNH:2
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Domain\Entities\MongoRoleDocument.cs
+FN:8,System.Guid Users.Domain.Entities.MongoRoleDocument::get_RoleId()
+FNDA:4,System.Guid Users.Domain.Entities.MongoRoleDocument::get_RoleId()
+DA:9,4
+FN:11,System.String Users.Domain.Entities.MongoRoleDocument::get_RoleName()
+FNDA:24,System.String Users.Domain.Entities.MongoRoleDocument::get_RoleName()
+DA:12,24
+FN:14,System.Guid Users.Domain.Entities.MongoRoleDocument::get_UserId()
+FNDA:14,System.Guid Users.Domain.Entities.MongoRoleDocument::get_UserId()
+DA:15,14
+LF:3
+LH:3
+BRF:0
+BRH:0
+FNF:3
+FNH:3
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Domain\Entities\MongoUserDocument.cs
+FN:7,System.Guid Users.Domain.Entities.MongoUserDocument::get_UserId()
+FNDA:49,System.Guid Users.Domain.Entities.MongoUserDocument::get_UserId()
+DA:8,49
+FN:10,System.String Users.Domain.Entities.MongoUserDocument::get_UserName()
+FNDA:23,System.String Users.Domain.Entities.MongoUserDocument::get_UserName()
+DA:11,23
+FN:13,System.String Users.Domain.Entities.MongoUserDocument::get_UserLastName()
+FNDA:13,System.String Users.Domain.Entities.MongoUserDocument::get_UserLastName()
+DA:14,13
+FN:16,System.String Users.Domain.Entities.MongoUserDocument::get_UserEmail()
+FNDA:19,System.String Users.Domain.Entities.MongoUserDocument::get_UserEmail()
+DA:17,19
+FN:19,System.String Users.Domain.Entities.MongoUserDocument::get_UserPhoneNumber()
+FNDA:13,System.String Users.Domain.Entities.MongoUserDocument::get_UserPhoneNumber()
+DA:20,13
+FN:22,System.String Users.Domain.Entities.MongoUserDocument::get_UserDirection()
+FNDA:13,System.String Users.Domain.Entities.MongoUserDocument::get_UserDirection()
+DA:23,13
+FN:25,System.DateTime Users.Domain.Entities.MongoUserDocument::get_CreatedAt()
+FNDA:4,System.DateTime Users.Domain.Entities.MongoUserDocument::get_CreatedAt()
+DA:26,4
+FN:28,System.String Users.Domain.Entities.MongoUserDocument::get_CreatedBy()
+FNDA:4,System.String Users.Domain.Entities.MongoUserDocument::get_CreatedBy()
+DA:29,4
+FN:31,System.Nullable`1<System.DateTime> Users.Domain.Entities.MongoUserDocument::get_UpdatedAt()
+FNDA:4,System.Nullable`1<System.DateTime> Users.Domain.Entities.MongoUserDocument::get_UpdatedAt()
+DA:32,4
+FN:34,System.String Users.Domain.Entities.MongoUserDocument::get_UpdatedBy()
+FNDA:4,System.String Users.Domain.Entities.MongoUserDocument::get_UpdatedBy()
+DA:35,4
+FN:36,System.String Users.Domain.Entities.MongoUserDocument::get_UserRole()
+FNDA:31,System.String Users.Domain.Entities.MongoUserDocument::get_UserRole()
+DA:37,31
+LF:11
+LH:11
+BRF:0
+BRH:0
+FNF:11
+FNH:11
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Domain\Entities\User.cs
+FN:4,System.Guid Users.Domain.Entities.User::get_UserId()
+FNDA:86,System.Guid Users.Domain.Entities.User::get_UserId()
+DA:5,86
+FN:5,System.String Users.Domain.Entities.User::get_UserName()
+FNDA:55,System.String Users.Domain.Entities.User::get_UserName()
+DA:6,55
+FN:6,System.String Users.Domain.Entities.User::get_UserLastName()
+FNDA:51,System.String Users.Domain.Entities.User::get_UserLastName()
+DA:7,51
+FN:7,System.String Users.Domain.Entities.User::get_UserEmail()
+FNDA:68,System.String Users.Domain.Entities.User::get_UserEmail()
+DA:8,68
+FN:8,System.String Users.Domain.Entities.User::get_UserPhoneNumber()
+FNDA:50,System.String Users.Domain.Entities.User::get_UserPhoneNumber()
+DA:9,50
+FN:9,System.String Users.Domain.Entities.User::get_UserDirection()
+FNDA:50,System.String Users.Domain.Entities.User::get_UserDirection()
+DA:10,50
+FN:10,System.DateTime Users.Domain.Entities.User::get_CreatedAt()
+FNDA:56,System.DateTime Users.Domain.Entities.User::get_CreatedAt()
+DA:11,56
+FN:11,System.String Users.Domain.Entities.User::get_CreatedBy()
+FNDA:14,System.String Users.Domain.Entities.User::get_CreatedBy()
+DA:12,14
+FN:12,System.Nullable`1<System.DateTime> Users.Domain.Entities.User::get_UpdatedAt()
+FNDA:19,System.Nullable`1<System.DateTime> Users.Domain.Entities.User::get_UpdatedAt()
+DA:13,19
+FN:13,System.String Users.Domain.Entities.User::get_UpdatedBy()
+FNDA:11,System.String Users.Domain.Entities.User::get_UpdatedBy()
+DA:14,11
+FN:14,System.Collections.Generic.ICollection`1<Users.Domain.Entities.UserRole> Users.Domain.Entities.User::get_UserRoles()
+FNDA:49,System.Collections.Generic.ICollection`1<Users.Domain.Entities.UserRole> Users.Domain.Entities.User::get_UserRoles()
+DA:15,49
+FN:28,System.Void Users.Domain.Entities.User::UpdateUserName(System.String)
+FNDA:7,System.Void Users.Domain.Entities.User::UpdateUserName(System.String)
+DA:29,7
+DA:30,7
+DA:31,7
+FN:33,System.Void Users.Domain.Entities.User::UpdateUserLastName(System.String)
+FNDA:5,System.Void Users.Domain.Entities.User::UpdateUserLastName(System.String)
+DA:34,5
+DA:35,5
+DA:36,5
+FN:38,System.Void Users.Domain.Entities.User::UpdateUserEmail(System.String)
+FNDA:7,System.Void Users.Domain.Entities.User::UpdateUserEmail(System.String)
+DA:39,7
+DA:40,7
+DA:41,7
+FN:43,System.Void Users.Domain.Entities.User::UpdateUserPhoneNumber(System.String)
+FNDA:5,System.Void Users.Domain.Entities.User::UpdateUserPhoneNumber(System.String)
+DA:44,5
+DA:45,5
+DA:46,5
+FN:48,System.Void Users.Domain.Entities.User::UpdateUserDirection(System.String)
+FNDA:5,System.Void Users.Domain.Entities.User::UpdateUserDirection(System.String)
+DA:49,5
+DA:50,5
+DA:51,5
+FN:16,System.Void Users.Domain.Entities.User::.ctor(System.String,System.String,System.String,System.String,System.String)
+FNDA:35,System.Void Users.Domain.Entities.User::.ctor(System.String,System.String,System.String,System.String,System.String)
+DA:17,35
+DA:18,35
+DA:19,35
+DA:20,35
+DA:21,35
+DA:22,35
+DA:23,35
+DA:24,35
+DA:25,35
+DA:26,35
+LF:36
+LH:36
+BRF:0
+BRH:0
+FNF:17
+FNH:17
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Domain\Entities\UserRole.cs
+FN:12,System.Guid Users.Domain.Entities.UserRole::get_RoleId()
+FNDA:33,System.Guid Users.Domain.Entities.UserRole::get_RoleId()
+DA:13,33
+FN:13,Users.Domain.Entities.UserRoleName Users.Domain.Entities.UserRole::get_RoleName()
+FNDA:35,Users.Domain.Entities.UserRoleName Users.Domain.Entities.UserRole::get_RoleName()
+DA:14,35
+FN:14,System.Guid Users.Domain.Entities.UserRole::get_UserId()
+FNDA:22,System.Guid Users.Domain.Entities.UserRole::get_UserId()
+DA:15,22
+FN:15,Users.Domain.Entities.User Users.Domain.Entities.UserRole::get_User()
+FNDA:1,Users.Domain.Entities.User Users.Domain.Entities.UserRole::get_User()
+DA:16,1
+FN:17,System.Void Users.Domain.Entities.UserRole::.ctor(Users.Domain.Entities.UserRoleName)
+FNDA:20,System.Void Users.Domain.Entities.UserRole::.ctor(Users.Domain.Entities.UserRoleName)
+DA:18,20
+DA:19,20
+DA:20,20
+DA:21,20
+DA:22,20
+FN:23,System.Void Users.Domain.Entities.UserRole::.ctor()
+FNDA:3,System.Void Users.Domain.Entities.UserRole::.ctor()
+DA:24,3
+LF:10
+LH:10
+BRF:0
+BRH:0
+FNF:6
+FNH:6
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Infrastructure\Settings\MongoDBSettings.cs
+FN:4,System.String Users.Infrastructure.Settings.MongoDBSettings::get_ConnectionString()
+FNDA:70,System.String Users.Infrastructure.Settings.MongoDBSettings::get_ConnectionString()
+DA:5,70
+FN:5,System.String Users.Infrastructure.Settings.MongoDBSettings::get_DatabaseName()
+FNDA:88,System.String Users.Infrastructure.Settings.MongoDBSettings::get_DatabaseName()
+DA:6,88
+LF:2
+LH:2
+BRF:0
+BRH:0
+FNF:2
+FNH:2
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Infrastructure\Repositories\KeycloakRepository.cs
+FN:18,System.Void Users.Infrastructure.Repositories.KeycloakRepository::.ctor(System.Net.Http.HttpClient,Microsoft.Extensions.Configuration.IConfiguration)
+FNDA:18,System.Void Users.Infrastructure.Repositories.KeycloakRepository::.ctor(System.Net.Http.HttpClient,Microsoft.Extensions.Configuration.IConfiguration)
+DA:19,18
+DA:20,18
+DA:21,18
+DA:22,18
+DA:23,18
+FN:93,System.Void Users.Infrastructure.Repositories.KeycloakRepository/<AssignRoleToUserAsync>d__5::MoveNext()
+FNDA:2,System.Void Users.Infrastructure.Repositories.KeycloakRepository/<AssignRoleToUserAsync>d__5::MoveNext()
+DA:94,2
+DA:95,2
+DA:96,2
+DA:98,2
+DA:99,2
+DA:100,2
+DA:101,2
+DA:103,2
+DA:105,2
+DA:107,2
+DA:108,1
+DA:109,1
+DA:111,1
+BRDA:107,428,0,1
+BRDA:107,428,1,1
+FN:71,System.Void Users.Infrastructure.Repositories.KeycloakRepository/<CreateUserAsync>d__4::MoveNext()
+FNDA:2,System.Void Users.Infrastructure.Repositories.KeycloakRepository/<CreateUserAsync>d__4::MoveNext()
+DA:72,2
+DA:73,2
+DA:74,2
+DA:76,2
+DA:77,2
+DA:78,2
+DA:79,2
+DA:81,2
+DA:83,2
+DA:85,2
+DA:86,1
+DA:87,1
+DA:90,1
+DA:91,1
+BRDA:85,353,0,1
+BRDA:85,353,1,1
+FN:136,System.Void Users.Infrastructure.Repositories.KeycloakRepository/<DisableUserAsync>d__7::MoveNext()
+FNDA:2,System.Void Users.Infrastructure.Repositories.KeycloakRepository/<DisableUserAsync>d__7::MoveNext()
+DA:137,2
+DA:138,2
+DA:139,2
+DA:141,2
+DA:142,2
+DA:143,2
+DA:144,2
+DA:146,2
+DA:148,2
+DA:150,2
+DA:151,1
+DA:152,1
+DA:155,1
+DA:156,1
+DA:157,1
+BRDA:150,411,0,1
+BRDA:150,411,1,1
+FN:25,System.Void Users.Infrastructure.Repositories.KeycloakRepository/<GetTokenAsync>d__3::MoveNext()
+FNDA:3,System.Void Users.Infrastructure.Repositories.KeycloakRepository/<GetTokenAsync>d__3::MoveNext()
+DA:26,3
+DA:27,3
+DA:28,3
+DA:29,3
+DA:31,3
+DA:32,3
+DA:33,3
+DA:34,3
+DA:35,3
+DA:36,3
+DA:38,3
+DA:39,3
+DA:40,3
+DA:41,3
+DA:43,3
+DA:45,3
+DA:46,2
+DA:47,2
+DA:49,2
+DA:50,2
+DA:51,1
+DA:52,1
+DA:53,1
+DA:56,0
+DA:57,0
+DA:60,1
+DA:61,1
+DA:62,1
+DA:67,1
+DA:68,1
+DA:69,1
+BRDA:28,79,0,0
+BRDA:28,79,1,3
+BRDA:29,121,0,0
+BRDA:29,121,1,3
+BRDA:45,428,0,2
+BRDA:51,630,0,1
+BRDA:53,645,0,0
+BRDA:53,645,1,1
+BRDA:51,630,1,0
+BRDA:45,428,1,1
+FN:159,System.Void Users.Infrastructure.Repositories.KeycloakRepository/<GetUserIdAsync>d__8::MoveNext()
+FNDA:3,System.Void Users.Infrastructure.Repositories.KeycloakRepository/<GetUserIdAsync>d__8::MoveNext()
+DA:160,3
+DA:161,3
+DA:162,3
+DA:164,3
+DA:166,3
+DA:167,3
+DA:168,3
+DA:170,3
+DA:171,3
+DA:172,2
+DA:173,1
+DA:174,1
+DA:175,1
+DA:176,1
+DA:177,1
+DA:180,0
+DA:181,0
+DA:185,1
+DA:186,1
+DA:189,1
+DA:190,1
+DA:191,1
+DA:194,0
+DA:195,0
+DA:196,0
+DA:199,0
+DA:200,0
+DA:201,0
+DA:203,2
+BRDA:166,366,0,3
+BRDA:172,563,0,1
+BRDA:175,609,0,1
+BRDA:175,609,1,0
+BRDA:172,563,1,1
+BRDA:166,366,1,0
+BRDA:194,716,0,0
+BRDA:194,716,1,0
+FN:219,System.Void Users.Infrastructure.Repositories.KeycloakRepository/<SendPasswordResetEmailAsync>d__10::MoveNext()
+FNDA:2,System.Void Users.Infrastructure.Repositories.KeycloakRepository/<SendPasswordResetEmailAsync>d__10::MoveNext()
+DA:220,2
+DA:221,2
+DA:222,2
+DA:223,2
+DA:225,2
+DA:226,2
+DA:227,2
+DA:228,2
+DA:230,2
+DA:232,2
+DA:234,2
+DA:235,1
+DA:236,1
+DA:239,1
+BRDA:234,434,0,1
+BRDA:234,434,1,1
+FN:205,System.Void Users.Infrastructure.Repositories.KeycloakRepository/<SendVerificationEmailAsync>d__9::MoveNext()
+FNDA:2,System.Void Users.Infrastructure.Repositories.KeycloakRepository/<SendVerificationEmailAsync>d__9::MoveNext()
+DA:206,2
+DA:207,2
+DA:208,2
+DA:210,2
+DA:211,2
+DA:212,2
+DA:213,2
+DA:214,2
+DA:215,2
+DA:216,2
+DA:217,1
+FN:114,System.Void Users.Infrastructure.Repositories.KeycloakRepository/<UpdateUserAsync>d__6::MoveNext()
+FNDA:2,System.Void Users.Infrastructure.Repositories.KeycloakRepository/<UpdateUserAsync>d__6::MoveNext()
+DA:115,2
+DA:116,2
+DA:117,2
+DA:119,2
+DA:120,2
+DA:121,2
+DA:122,2
+DA:124,2
+DA:126,2
+DA:128,2
+DA:129,1
+DA:130,1
+DA:133,1
+DA:134,1
+BRDA:128,411,0,1
+BRDA:128,411,1,1
+LF:146
+LH:136
+BRF:28
+BRH:20
+FNF:9
+FNH:9
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Infrastructure\Repositories\RoleRepository.cs
+FN:11,System.Void Users.Infrastructure.Repositories.RoleRepository::.ctor(Users.Infrastructure.Database.UserDbContext)
+FNDA:6,System.Void Users.Infrastructure.Repositories.RoleRepository::.ctor(Users.Infrastructure.Database.UserDbContext)
+DA:12,6
+DA:13,6
+DA:14,6
+DA:15,6
+FN:22,System.Void Users.Infrastructure.Repositories.RoleRepository/<GetAllRolesAsync>d__3::MoveNext()
+FNDA:2,System.Void Users.Infrastructure.Repositories.RoleRepository/<GetAllRolesAsync>d__3::MoveNext()
+DA:23,2
+DA:24,2
+DA:25,2
+FN:17,System.Void Users.Infrastructure.Repositories.RoleRepository/<GetRoleByNameAsync>d__2::MoveNext()
+FNDA:4,System.Void Users.Infrastructure.Repositories.RoleRepository/<GetRoleByNameAsync>d__2::MoveNext()
+DA:18,4
+DA:19,4
+DA:20,4
+LF:10
+LH:10
+BRF:0
+BRH:0
+FNF:3
+FNH:3
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Infrastructure\Repositories\UserReadRepository.cs
+FN:16,System.Void Users.Infrastructure.Repositories.UserReadRepository::.ctor(Users.Infrastructure.Database.MongoDbContext)
+FNDA:10,System.Void Users.Infrastructure.Repositories.UserReadRepository::.ctor(Users.Infrastructure.Database.MongoDbContext)
+DA:17,10
+DA:18,10
+DA:19,10
+DA:20,10
+DA:21,10
+FN:36,System.Guid Users.Infrastructure.Repositories.UserReadRepository/<>c::<RolesForUsersAsync>b__4_0(Users.Domain.Entities.MongoUserDocument)
+FNDA:9,System.Guid Users.Infrastructure.Repositories.UserReadRepository/<>c::<RolesForUsersAsync>b__4_0(Users.Domain.Entities.MongoUserDocument)
+DA:37,9
+FN:43,System.Guid Users.Infrastructure.Repositories.UserReadRepository/<>c::<RolesForUsersAsync>b__4_2(Users.Domain.Entities.MongoRoleDocument)
+FNDA:4,System.Guid Users.Infrastructure.Repositories.UserReadRepository/<>c::<RolesForUsersAsync>b__4_2(Users.Domain.Entities.MongoRoleDocument)
+DA:44,4
+FN:44,System.Guid Users.Infrastructure.Repositories.UserReadRepository/<>c::<RolesForUsersAsync>b__4_3(System.Linq.IGrouping`2<System.Guid,Users.Domain.Entities.MongoRoleDocument>)
+FNDA:11,System.Guid Users.Infrastructure.Repositories.UserReadRepository/<>c::<RolesForUsersAsync>b__4_3(System.Linq.IGrouping`2<System.Guid,Users.Domain.Entities.MongoRoleDocument>)
+DA:45,11
+FN:80,System.Void Users.Infrastructure.Repositories.UserReadRepository/<GetAllAsync>d__7::MoveNext()
+FNDA:4,System.Void Users.Infrastructure.Repositories.UserReadRepository/<GetAllAsync>d__7::MoveNext()
+DA:81,4
+DA:82,4
+DA:84,4
+DA:85,3
+DA:86,3
+DA:87,3
+DA:89,4
+DA:90,4
+BRDA:84,197,0,3
+BRDA:84,197,1,4
+FN:70,System.Void Users.Infrastructure.Repositories.UserReadRepository/<GetByEmailAsync>d__6::MoveNext()
+FNDA:3,System.Void Users.Infrastructure.Repositories.UserReadRepository/<GetByEmailAsync>d__6::MoveNext()
+DA:71,3
+DA:72,3
+DA:73,3
+DA:75,3
+DA:77,3
+DA:78,3
+FN:60,System.Void Users.Infrastructure.Repositories.UserReadRepository/<GetByIdAsync>d__5::MoveNext()
+FNDA:3,System.Void Users.Infrastructure.Repositories.UserReadRepository/<GetByIdAsync>d__5::MoveNext()
+DA:61,3
+DA:62,3
+DA:63,3
+DA:65,3
+DA:67,3
+DA:68,3
+FN:23,System.Void Users.Infrastructure.Repositories.UserReadRepository/<RoleForUserAsync>d__3::MoveNext()
+FNDA:6,System.Void Users.Infrastructure.Repositories.UserReadRepository/<RoleForUserAsync>d__3::MoveNext()
+DA:24,6
+DA:25,8
+DA:27,4
+DA:28,4
+DA:30,4
+DA:31,6
+BRDA:25,29,0,2
+BRDA:25,29,1,4
+BRDA:30,286,0,2
+BRDA:30,286,1,2
+FN:33,System.Void Users.Infrastructure.Repositories.UserReadRepository/<RolesForUsersAsync>d__4::MoveNext()
+FNDA:3,System.Void Users.Infrastructure.Repositories.UserReadRepository/<RolesForUsersAsync>d__4::MoveNext()
+DA:34,3
+DA:35,3
+DA:38,3
+DA:40,3
+DA:41,3
+DA:43,3
+DA:47,21
+DA:48,6
+DA:49,6
+DA:50,3
+DA:51,3
+DA:52,3
+DA:54,3
+DA:55,3
+DA:56,3
+DA:57,6
+DA:58,3
+BRDA:35,24,0,3
+BRDA:35,24,1,0
+BRDA:35,45,0,0
+BRDA:35,45,1,3
+BRDA:38,126,0,0
+BRDA:38,126,1,3
+BRDA:47,618,1,6
+BRDA:49,553,0,3
+BRDA:49,553,1,3
+BRDA:47,618,0,3
+LF:51
+LH:51
+BRF:18
+BRH:14
+FNF:9
+FNH:9
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Infrastructure\Repositories\UserWriteRepository.cs
+FN:12,System.Void Users.Infrastructure.Repositories.UserWriteRepository::.ctor(Users.Infrastructure.Database.UserDbContext)
+FNDA:6,System.Void Users.Infrastructure.Repositories.UserWriteRepository::.ctor(Users.Infrastructure.Database.UserDbContext)
+DA:13,6
+DA:14,6
+DA:15,6
+DA:16,6
+FN:18,System.Void Users.Infrastructure.Repositories.UserWriteRepository/<CreateAsync>d__2::MoveNext()
+FNDA:1,System.Void Users.Infrastructure.Repositories.UserWriteRepository/<CreateAsync>d__2::MoveNext()
+DA:19,1
+DA:20,1
+DA:21,1
+FN:23,System.Void Users.Infrastructure.Repositories.UserWriteRepository/<DeleteAsync>d__3::MoveNext()
+FNDA:2,System.Void Users.Infrastructure.Repositories.UserWriteRepository/<DeleteAsync>d__3::MoveNext()
+DA:24,2
+DA:25,2
+DA:26,2
+DA:27,1
+DA:28,1
+DA:29,1
+DA:30,2
+BRDA:26,186,0,1
+BRDA:26,186,1,2
+FN:37,System.Void Users.Infrastructure.Repositories.UserWriteRepository/<GetByIdAsync>d__5::MoveNext()
+FNDA:2,System.Void Users.Infrastructure.Repositories.UserWriteRepository/<GetByIdAsync>d__5::MoveNext()
+DA:38,2
+DA:39,2
+DA:40,2
+DA:41,2
+DA:42,2
+FN:32,System.Void Users.Infrastructure.Repositories.UserWriteRepository/<UpdateAsync>d__4::MoveNext()
+FNDA:1,System.Void Users.Infrastructure.Repositories.UserWriteRepository/<UpdateAsync>d__4::MoveNext()
+DA:33,1
+DA:34,1
+DA:35,1
+LF:22
+LH:22
+BRF:2
+BRH:2
+FNF:5
+FNH:5
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Infrastructure\Exceptions\KeycloakException.cs
+FN:6,System.Void Users.Infrastructure.Exceptions.KeycloakException::.ctor(System.String)
+FNDA:36,System.Void Users.Infrastructure.Exceptions.KeycloakException::.ctor(System.String)
+DA:7,36
+FN:7,System.Void Users.Infrastructure.Exceptions.KeycloakException::.ctor(System.String,System.Exception)
+FNDA:12,System.Void Users.Infrastructure.Exceptions.KeycloakException::.ctor(System.String,System.Exception)
+DA:8,12
+LF:2
+LH:2
+BRF:0
+BRH:0
+FNF:2
+FNH:2
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Infrastructure\Exceptions\UserException.cs
+FN:6,System.Void Users.Infrastructure.Exceptions.UserException::.ctor(System.String)
+FNDA:3,System.Void Users.Infrastructure.Exceptions.UserException::.ctor(System.String)
+DA:7,3
+FN:7,System.Void Users.Infrastructure.Exceptions.UserException::.ctor(System.String,System.Exception)
+FNDA:30,System.Void Users.Infrastructure.Exceptions.UserException::.ctor(System.String,System.Exception)
+DA:8,30
+LF:2
+LH:2
+BRF:0
+BRH:0
+FNF:2
+FNH:2
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Infrastructure\Exceptions\UserNotFoundException.cs
+FN:6,System.Void Users.Infrastructure.Exceptions.UserNotFoundException::.ctor(System.String)
+FNDA:15,System.Void Users.Infrastructure.Exceptions.UserNotFoundException::.ctor(System.String)
+DA:7,15
+LF:1
+LH:1
+BRF:0
+BRH:0
+FNF:1
+FNH:1
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Infrastructure\Exceptions\UserRoleException.cs
+FN:6,System.Void Users.Infrastructure.Exceptions.UserRoleException::.ctor(System.String)
+FNDA:6,System.Void Users.Infrastructure.Exceptions.UserRoleException::.ctor(System.String)
+DA:7,6
+LF:1
+LH:1
+BRF:0
+BRH:0
+FNF:1
+FNH:1
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Infrastructure\Exceptions\ValidatorException.cs
+FN:7,System.Void Users.Infrastructure.Exceptions.ValidatorException::.ctor(System.String)
+FNDA:3,System.Void Users.Infrastructure.Exceptions.ValidatorException::.ctor(System.String)
+DA:8,3
+LF:1
+LH:1
+BRF:0
+BRH:0
+FNF:1
+FNH:1
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Infrastructure\EventBus\RabbitMQChannelFactory.cs
+FN:13,System.Void Users.Infrastructure.EventBus.RabbitMQChannelFactory::.ctor(Microsoft.Extensions.Options.IOptions`1<Users.Infrastructure.EventBus.RabbitMQSetting>)
+FNDA:6,System.Void Users.Infrastructure.EventBus.RabbitMQChannelFactory::.ctor(Microsoft.Extensions.Options.IOptions`1<Users.Infrastructure.EventBus.RabbitMQSetting>)
+DA:14,6
+DA:16,6
+DA:17,6
+DA:18,6
+DA:19,4
+BRDA:18,23,0,1
+BRDA:18,23,1,5
+BRDA:18,35,0,2
+BRDA:18,35,1,4
+FN:21,System.Void Users.Infrastructure.EventBus.RabbitMQChannelFactory/<CreateChannelAsync>d__4::MoveNext()
+FNDA:3,System.Void Users.Infrastructure.EventBus.RabbitMQChannelFactory/<CreateChannelAsync>d__4::MoveNext()
+DA:22,3
+DA:23,3
+DA:24,2
+DA:25,2
+FN:72,System.Void Users.Infrastructure.EventBus.RabbitMQChannelFactory/<DisposeAsync>d__6::MoveNext()
+FNDA:2,System.Void Users.Infrastructure.EventBus.RabbitMQChannelFactory/<DisposeAsync>d__6::MoveNext()
+DA:73,2
+DA:74,2
+DA:76,2
+DA:77,2
+DA:78,1
+DA:79,1
+DA:80,1
+DA:81,3
+DA:82,1
+DA:83,1
+DA:84,1
+DA:85,1
+DA:86,2
+DA:88,2
+DA:89,2
+DA:90,2
+DA:91,2
+DA:92,2
+DA:93,2
+BRDA:77,155,0,1
+BRDA:79,181,0,1
+BRDA:79,181,1,1
+BRDA:77,155,1,2
+FN:27,System.Void Users.Infrastructure.EventBus.RabbitMQChannelFactory/<EnsureConnectionAsync>d__5::MoveNext()
+FNDA:3,System.Void Users.Infrastructure.EventBus.RabbitMQChannelFactory/<EnsureConnectionAsync>d__5::MoveNext()
+DA:28,3
+DA:29,3
+DA:30,2
+DA:31,2
+DA:34,1
+DA:36,1
+DA:37,1
+DA:38,0
+DA:39,0
+DA:42,1
+DA:43,1
+DA:45,1
+DA:46,1
+DA:47,1
+DA:48,0
+DA:49,0
+DA:50,0
+DA:52,1
+DA:53,1
+DA:54,1
+DA:56,1
+DA:57,1
+DA:58,1
+DA:59,1
+DA:60,1
+DA:61,1
+DA:63,1
+DA:65,0
+DA:67,1
+DA:68,1
+DA:69,1
+DA:70,2
+BRDA:28,16,0,3
+BRDA:29,39,0,3
+BRDA:29,39,1,0
+BRDA:29,62,0,2
+BRDA:29,62,1,1
+BRDA:28,16,1,2
+BRDA:37,214,0,1
+BRDA:37,214,1,0
+BRDA:37,239,0,0
+BRDA:37,239,1,1
+BRDA:42,265,0,1
+BRDA:42,265,1,1
+LF:60
+LH:54
+BRF:20
+BRH:17
+FNF:4
+FNH:4
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Infrastructure\EventBus\RabbitMQPublisher.cs
+FN:16,System.Void Users.Infrastructure.EventBus.RabbitMQPublisher::.ctor(IRabbitMQChannelFactory,Microsoft.Extensions.Logging.ILogger`1<Users.Infrastructure.EventBus.RabbitMQPublisher>)
+FNDA:6,System.Void Users.Infrastructure.EventBus.RabbitMQPublisher::.ctor(IRabbitMQChannelFactory,Microsoft.Extensions.Logging.ILogger`1<Users.Infrastructure.EventBus.RabbitMQPublisher>)
+DA:17,6
+DA:18,6
+DA:19,6
+DA:20,6
+DA:21,6
+BRDA:19,11,0,0
+BRDA:19,11,1,6
+BRDA:20,33,0,0
+BRDA:20,33,1,6
+FN:23,System.Void Users.Infrastructure.EventBus.RabbitMQPublisher/<Publish>d__3`1::MoveNext()
+FNDA:6,System.Void Users.Infrastructure.EventBus.RabbitMQPublisher/<Publish>d__3`1::MoveNext()
+DA:24,6
+DA:25,7
+DA:26,6
+DA:29,4
+DA:30,4
+DA:32,3
+DA:33,3
+DA:34,3
+DA:35,3
+DA:36,3
+DA:37,3
+DA:38,3
+DA:40,2
+DA:41,2
+DA:42,2
+DA:43,2
+DA:44,2
+DA:45,2
+DA:46,2
+DA:47,2
+DA:48,2
+DA:49,1
+DA:50,3
+DA:51,3
+DA:52,3
+DA:53,3
+DA:55,1
+BRDA:25,32,0,1
+BRDA:25,32,1,5
+BRDA:26,58,0,1
+BRDA:26,58,1,4
+BRDA:26,81,0,4
+BRDA:26,81,1,3
+FN:57,System.Void Users.Infrastructure.EventBus.RabbitMQPublisher/<Users-Core-Events-IEventBus-Publish>d__4`1::MoveNext()
+FNDA:0,System.Void Users.Infrastructure.EventBus.RabbitMQPublisher/<Users-Core-Events-IEventBus-Publish>d__4`1::MoveNext()
+DA:58,0
+DA:59,0
+DA:60,0
+LF:35
+LH:32
+BRF:10
+BRH:8
+FNF:3
+FNH:2
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Infrastructure\EventBus\RabbitMQSetting.cs
+FN:4,System.String Users.Infrastructure.EventBus.RabbitMQSetting::get_HostName()
+FNDA:7,System.String Users.Infrastructure.EventBus.RabbitMQSetting::get_HostName()
+DA:5,7
+FN:5,System.String Users.Infrastructure.EventBus.RabbitMQSetting::get_UserName()
+FNDA:7,System.String Users.Infrastructure.EventBus.RabbitMQSetting::get_UserName()
+DA:6,7
+FN:6,System.String Users.Infrastructure.EventBus.RabbitMQSetting::get_Password()
+FNDA:7,System.String Users.Infrastructure.EventBus.RabbitMQSetting::get_Password()
+DA:7,7
+LF:3
+LH:3
+BRF:0
+BRH:0
+FNF:3
+FNH:3
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Infrastructure\EventBus\Events\UserCreatedEvent.cs
+FN:3,System.Guid Users.Infrastructure.EventBus.Events.UserCreatedEvent::get_UserId()
+FNDA:9,System.Guid Users.Infrastructure.EventBus.Events.UserCreatedEvent::get_UserId()
+DA:4,9
+FN:4,System.String Users.Infrastructure.EventBus.Events.UserCreatedEvent::get_UserName()
+FNDA:7,System.String Users.Infrastructure.EventBus.Events.UserCreatedEvent::get_UserName()
+DA:5,7
+FN:5,System.String Users.Infrastructure.EventBus.Events.UserCreatedEvent::get_UserLastName()
+FNDA:7,System.String Users.Infrastructure.EventBus.Events.UserCreatedEvent::get_UserLastName()
+DA:6,7
+FN:6,System.String Users.Infrastructure.EventBus.Events.UserCreatedEvent::get_UserEmail()
+FNDA:7,System.String Users.Infrastructure.EventBus.Events.UserCreatedEvent::get_UserEmail()
+DA:7,7
+FN:7,System.String Users.Infrastructure.EventBus.Events.UserCreatedEvent::get_UserPhoneNumber()
+FNDA:7,System.String Users.Infrastructure.EventBus.Events.UserCreatedEvent::get_UserPhoneNumber()
+DA:8,7
+FN:8,System.String Users.Infrastructure.EventBus.Events.UserCreatedEvent::get_UserDirection()
+FNDA:7,System.String Users.Infrastructure.EventBus.Events.UserCreatedEvent::get_UserDirection()
+DA:9,7
+FN:9,System.DateTime Users.Infrastructure.EventBus.Events.UserCreatedEvent::get_CreatedAt()
+FNDA:7,System.DateTime Users.Infrastructure.EventBus.Events.UserCreatedEvent::get_CreatedAt()
+DA:10,7
+FN:10,System.String Users.Infrastructure.EventBus.Events.UserCreatedEvent::get_CreatedBy()
+FNDA:7,System.String Users.Infrastructure.EventBus.Events.UserCreatedEvent::get_CreatedBy()
+DA:11,7
+FN:11,System.Nullable`1<System.DateTime> Users.Infrastructure.EventBus.Events.UserCreatedEvent::get_UpdatedAt()
+FNDA:7,System.Nullable`1<System.DateTime> Users.Infrastructure.EventBus.Events.UserCreatedEvent::get_UpdatedAt()
+DA:12,7
+FN:12,System.String Users.Infrastructure.EventBus.Events.UserCreatedEvent::get_UpdatedBy()
+FNDA:7,System.String Users.Infrastructure.EventBus.Events.UserCreatedEvent::get_UpdatedBy()
+DA:13,7
+FN:13,System.Guid Users.Infrastructure.EventBus.Events.UserCreatedEvent::get_RoleId()
+FNDA:7,System.Guid Users.Infrastructure.EventBus.Events.UserCreatedEvent::get_RoleId()
+DA:14,7
+FN:14,System.String Users.Infrastructure.EventBus.Events.UserCreatedEvent::get_RoleName()
+FNDA:22,System.String Users.Infrastructure.EventBus.Events.UserCreatedEvent::get_RoleName()
+DA:15,22
+FN:2,System.Void Users.Infrastructure.EventBus.Events.UserCreatedEvent::.ctor(System.Guid,System.String,System.String,System.String,System.String,System.String,System.DateTime,System.String,System.Nullable`1<System.DateTime>,System.String,System.Guid,System.String)
+FNDA:15,System.Void Users.Infrastructure.EventBus.Events.UserCreatedEvent::.ctor(System.Guid,System.String,System.String,System.String,System.String,System.String,System.DateTime,System.String,System.Nullable`1<System.DateTime>,System.String,System.Guid,System.String)
+DA:3,15
+LF:13
+LH:13
+BRF:0
+BRH:0
+FNF:13
+FNH:13
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Infrastructure\EventBus\Events\UserDeletedEvent.cs
+FN:2,System.Guid Users.Infrastructure.EventBus.Events.UserDeletedEvent::get_UserId()
+FNDA:14,System.Guid Users.Infrastructure.EventBus.Events.UserDeletedEvent::get_UserId()
+DA:3,14
+LF:1
+LH:1
+BRF:0
+BRH:0
+FNF:1
+FNH:1
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Infrastructure\EventBus\Events\UserUpdatedEvent.cs
+FN:3,System.Guid Users.Infrastructure.EventBus.Events.UserUpdatedEvent::get_UserId()
+FNDA:4,System.Guid Users.Infrastructure.EventBus.Events.UserUpdatedEvent::get_UserId()
+DA:4,4
+FN:4,System.String Users.Infrastructure.EventBus.Events.UserUpdatedEvent::get_UserName()
+FNDA:4,System.String Users.Infrastructure.EventBus.Events.UserUpdatedEvent::get_UserName()
+DA:5,4
+FN:5,System.String Users.Infrastructure.EventBus.Events.UserUpdatedEvent::get_UserLastName()
+FNDA:4,System.String Users.Infrastructure.EventBus.Events.UserUpdatedEvent::get_UserLastName()
+DA:6,4
+FN:6,System.String Users.Infrastructure.EventBus.Events.UserUpdatedEvent::get_UserEmail()
+FNDA:4,System.String Users.Infrastructure.EventBus.Events.UserUpdatedEvent::get_UserEmail()
+DA:7,4
+FN:7,System.String Users.Infrastructure.EventBus.Events.UserUpdatedEvent::get_UserPhoneNumber()
+FNDA:4,System.String Users.Infrastructure.EventBus.Events.UserUpdatedEvent::get_UserPhoneNumber()
+DA:8,4
+FN:8,System.String Users.Infrastructure.EventBus.Events.UserUpdatedEvent::get_UserDirection()
+FNDA:4,System.String Users.Infrastructure.EventBus.Events.UserUpdatedEvent::get_UserDirection()
+DA:9,4
+FN:9,System.DateTime Users.Infrastructure.EventBus.Events.UserUpdatedEvent::get_CreatedAt()
+FNDA:3,System.DateTime Users.Infrastructure.EventBus.Events.UserUpdatedEvent::get_CreatedAt()
+DA:10,3
+FN:10,System.String Users.Infrastructure.EventBus.Events.UserUpdatedEvent::get_CreatedBy()
+FNDA:3,System.String Users.Infrastructure.EventBus.Events.UserUpdatedEvent::get_CreatedBy()
+DA:11,3
+FN:11,System.Nullable`1<System.DateTime> Users.Infrastructure.EventBus.Events.UserUpdatedEvent::get_UpdatedAt()
+FNDA:4,System.Nullable`1<System.DateTime> Users.Infrastructure.EventBus.Events.UserUpdatedEvent::get_UpdatedAt()
+DA:12,4
+FN:12,System.String Users.Infrastructure.EventBus.Events.UserUpdatedEvent::get_UpdatedBy()
+FNDA:4,System.String Users.Infrastructure.EventBus.Events.UserUpdatedEvent::get_UpdatedBy()
+DA:13,4
+FN:13,System.Guid Users.Infrastructure.EventBus.Events.UserUpdatedEvent::get_RoleId()
+FNDA:4,System.Guid Users.Infrastructure.EventBus.Events.UserUpdatedEvent::get_RoleId()
+DA:14,4
+FN:14,System.String Users.Infrastructure.EventBus.Events.UserUpdatedEvent::get_RoleName()
+FNDA:15,System.String Users.Infrastructure.EventBus.Events.UserUpdatedEvent::get_RoleName()
+DA:15,15
+FN:2,System.Void Users.Infrastructure.EventBus.Events.UserUpdatedEvent::.ctor(System.Guid,System.String,System.String,System.String,System.String,System.String,System.DateTime,System.String,System.Nullable`1<System.DateTime>,System.String,System.Guid,System.String)
+FNDA:11,System.Void Users.Infrastructure.EventBus.Events.UserUpdatedEvent::.ctor(System.Guid,System.String,System.String,System.String,System.String,System.String,System.DateTime,System.String,System.Nullable`1<System.DateTime>,System.String,System.Guid,System.String)
+DA:3,11
+LF:13
+LH:13
+BRF:0
+BRH:0
+FNF:13
+FNH:13
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Infrastructure\EventBus\Consumers\CreateUserConsumer.cs
+FN:18,System.Void Users.Infrastructure.EventBus.Consumers.CreateUserConsumer::.ctor(MongoDB.Driver.IMongoClient,Microsoft.Extensions.Options.IOptions`1<Users.Infrastructure.Settings.MongoDBSettings>)
+FNDA:3,System.Void Users.Infrastructure.EventBus.Consumers.CreateUserConsumer::.ctor(MongoDB.Driver.IMongoClient,Microsoft.Extensions.Options.IOptions`1<Users.Infrastructure.Settings.MongoDBSettings>)
+DA:19,3
+DA:20,3
+DA:21,3
+DA:22,3
+DA:23,3
+DA:24,3
+FN:31,System.Void Users.Infrastructure.EventBus.Consumers.CreateUserConsumer/<<Start>b__3_0>d::MoveNext()
+FNDA:3,System.Void Users.Infrastructure.EventBus.Consumers.CreateUserConsumer/<<Start>b__3_0>d::MoveNext()
+DA:32,3
+DA:33,3
+DA:35,3
+DA:36,3
+DA:37,2
+DA:38,1
+DA:39,1
+DA:40,1
+DA:41,1
+DA:42,1
+DA:43,1
+DA:44,1
+DA:45,1
+DA:46,1
+DA:47,1
+DA:48,1
+DA:49,1
+DA:50,1
+DA:51,1
+DA:53,1
+DA:54,1
+DA:55,1
+DA:56,1
+DA:57,1
+DA:58,1
+DA:60,1
+DA:61,1
+DA:62,1
+DA:63,2
+DA:64,1
+DA:65,1
+DA:66,1
+DA:67,1
+DA:68,6
+BRDA:37,103,0,1
+BRDA:37,103,1,2
+FN:26,System.Void Users.Infrastructure.EventBus.Consumers.CreateUserConsumer/<Start>d__3::MoveNext()
+FNDA:3,System.Void Users.Infrastructure.EventBus.Consumers.CreateUserConsumer/<Start>d__3::MoveNext()
+DA:27,3
+DA:28,3
+DA:29,3
+DA:30,3
+DA:31,3
+DA:34,3
+DA:52,3
+DA:59,3
+DA:69,3
+DA:70,3
+LF:50
+LH:50
+BRF:2
+BRH:2
+FNF:3
+FNH:3
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Infrastructure\EventBus\Consumers\DeletedUserConsumer.cs
+FN:18,System.Void Users.Infrastructure.EventBus.Consumers.DeletedUserConsumer::.ctor(MongoDB.Driver.IMongoClient,Microsoft.Extensions.Options.IOptions`1<Users.Infrastructure.Settings.MongoDBSettings>)
+FNDA:2,System.Void Users.Infrastructure.EventBus.Consumers.DeletedUserConsumer::.ctor(MongoDB.Driver.IMongoClient,Microsoft.Extensions.Options.IOptions`1<Users.Infrastructure.Settings.MongoDBSettings>)
+DA:19,2
+DA:20,2
+DA:21,2
+DA:22,2
+DA:23,2
+DA:24,2
+FN:31,System.Void Users.Infrastructure.EventBus.Consumers.DeletedUserConsumer/<>c__DisplayClass3_0/<<Start>b__0>d::MoveNext()
+FNDA:2,System.Void Users.Infrastructure.EventBus.Consumers.DeletedUserConsumer/<>c__DisplayClass3_0/<<Start>b__0>d::MoveNext()
+DA:32,2
+DA:33,2
+DA:35,2
+DA:36,2
+DA:37,1
+DA:38,1
+DA:39,1
+DA:40,1
+DA:42,1
+DA:43,1
+DA:44,1
+DA:45,1
+DA:46,1
+DA:47,1
+DA:48,1
+DA:49,1
+DA:51,2
+DA:52,2
+DA:53,2
+DA:54,4
+BRDA:37,103,0,1
+BRDA:37,103,1,1
+FN:26,System.Void Users.Infrastructure.EventBus.Consumers.DeletedUserConsumer/<Start>d__3::MoveNext()
+FNDA:2,System.Void Users.Infrastructure.EventBus.Consumers.DeletedUserConsumer/<Start>d__3::MoveNext()
+DA:27,2
+DA:28,2
+DA:29,2
+DA:30,2
+DA:31,2
+DA:34,2
+DA:41,2
+DA:50,2
+DA:55,2
+DA:56,2
+LF:36
+LH:36
+BRF:2
+BRH:2
+FNF:3
+FNH:3
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Infrastructure\EventBus\Consumers\UpdatedUserConsumer.cs
+FN:18,System.Void Users.Infrastructure.EventBus.Consumers.UpdatedUserConsumer::.ctor(MongoDB.Driver.IMongoClient,Microsoft.Extensions.Options.IOptions`1<Users.Infrastructure.Settings.MongoDBSettings>)
+FNDA:2,System.Void Users.Infrastructure.EventBus.Consumers.UpdatedUserConsumer::.ctor(MongoDB.Driver.IMongoClient,Microsoft.Extensions.Options.IOptions`1<Users.Infrastructure.Settings.MongoDBSettings>)
+DA:19,2
+DA:20,2
+DA:21,2
+DA:22,2
+DA:23,2
+DA:24,2
+FN:31,System.Void Users.Infrastructure.EventBus.Consumers.UpdatedUserConsumer/<>c__DisplayClass3_0/<<Start>b__0>d::MoveNext()
+FNDA:2,System.Void Users.Infrastructure.EventBus.Consumers.UpdatedUserConsumer/<>c__DisplayClass3_0/<<Start>b__0>d::MoveNext()
+DA:32,2
+DA:33,2
+DA:35,2
+DA:36,2
+DA:37,1
+DA:38,1
+DA:39,1
+DA:40,1
+DA:41,1
+DA:42,1
+DA:43,1
+DA:44,1
+DA:45,1
+DA:46,1
+DA:47,1
+DA:49,1
+DA:51,1
+DA:52,1
+DA:53,1
+DA:55,1
+DA:56,1
+DA:57,1
+DA:58,1
+DA:59,1
+DA:60,1
+DA:61,1
+DA:63,2
+DA:64,2
+DA:65,2
+DA:66,4
+BRDA:37,103,0,1
+BRDA:37,103,1,1
+FN:26,System.Void Users.Infrastructure.EventBus.Consumers.UpdatedUserConsumer/<Start>d__3::MoveNext()
+FNDA:2,System.Void Users.Infrastructure.EventBus.Consumers.UpdatedUserConsumer/<Start>d__3::MoveNext()
+DA:27,2
+DA:28,2
+DA:29,2
+DA:30,2
+DA:31,2
+DA:34,2
+DA:48,2
+DA:50,2
+DA:54,2
+DA:62,2
+DA:67,2
+DA:68,2
+LF:48
+LH:48
+BRF:2
+BRH:2
+FNF:3
+FNH:3
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Infrastructure\Database\MongoDbContext.cs
+FN:22,MongoDB.Driver.IMongoCollection`1<Users.Domain.Entities.MongoUserDocument> Users.Infrastructure.Database.MongoDbContext::get_User()
+FNDA:2,MongoDB.Driver.IMongoCollection`1<Users.Domain.Entities.MongoUserDocument> Users.Infrastructure.Database.MongoDbContext::get_User()
+DA:23,2
+FN:23,MongoDB.Driver.IMongoCollection`1<Users.Domain.Entities.MongoRoleDocument> Users.Infrastructure.Database.MongoDbContext::get_Role()
+FNDA:2,MongoDB.Driver.IMongoCollection`1<Users.Domain.Entities.MongoRoleDocument> Users.Infrastructure.Database.MongoDbContext::get_Role()
+DA:24,2
+FN:11,System.Void Users.Infrastructure.Database.MongoDbContext::.ctor(Microsoft.Extensions.Options.IOptions`1<Users.Infrastructure.Settings.MongoDBSettings>)
+FNDA:19,System.Void Users.Infrastructure.Database.MongoDbContext::.ctor(Microsoft.Extensions.Options.IOptions`1<Users.Infrastructure.Settings.MongoDBSettings>)
+DA:12,19
+DA:13,19
+DA:14,19
+DA:15,2
+DA:16,2
+DA:18,17
+DA:19,17
+DA:20,15
+DA:21,13
+BRDA:14,9,0,1
+BRDA:14,9,1,18
+BRDA:14,25,0,2
+BRDA:14,25,1,17
+LF:11
+LH:11
+BRF:4
+BRH:4
+FNF:3
+FNH:3
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Infrastructure\Database\UserDbContext.cs
+FN:16,Microsoft.EntityFrameworkCore.DbContext Users.Infrastructure.Database.UserDbContext::get_DbContext()
+FNDA:3,Microsoft.EntityFrameworkCore.DbContext Users.Infrastructure.Database.UserDbContext::get_DbContext()
+DA:17,3
+FN:19,Microsoft.EntityFrameworkCore.DbSet`1<Users.Domain.Entities.User> Users.Infrastructure.Database.UserDbContext::get_User()
+FNDA:69,Microsoft.EntityFrameworkCore.DbSet`1<Users.Domain.Entities.User> Users.Infrastructure.Database.UserDbContext::get_User()
+DA:20,69
+FN:20,Microsoft.EntityFrameworkCore.DbSet`1<Users.Domain.Entities.UserRole> Users.Infrastructure.Database.UserDbContext::get_Role()
+FNDA:71,Microsoft.EntityFrameworkCore.DbSet`1<Users.Domain.Entities.UserRole> Users.Infrastructure.Database.UserDbContext::get_Role()
+DA:21,71
+FN:23,Users.Core.Database.IUserDbContextTransactionProxy Users.Infrastructure.Database.UserDbContext::BeginTransaction()
+FNDA:1,Users.Core.Database.IUserDbContextTransactionProxy Users.Infrastructure.Database.UserDbContext::BeginTransaction()
+DA:24,1
+DA:25,1
+DA:26,1
+FN:28,System.Void Users.Infrastructure.Database.UserDbContext::OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)
+FNDA:2,System.Void Users.Infrastructure.Database.UserDbContext::OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)
+DA:29,2
+DA:30,2
+DA:31,2
+FN:33,System.Void Users.Infrastructure.Database.UserDbContext::OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)
+FNDA:18,System.Void Users.Infrastructure.Database.UserDbContext::OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)
+DA:34,18
+DA:35,18
+DA:36,18
+FN:42,System.Void Users.Infrastructure.Database.UserDbContext::SetPropertyIsModifiedToFalse(TEntity,System.Linq.Expressions.Expression`1<System.Func`2<TEntity,TProperty>>)
+FNDA:1,System.Void Users.Infrastructure.Database.UserDbContext::SetPropertyIsModifiedToFalse(TEntity,System.Linq.Expressions.Expression`1<System.Func`2<TEntity,TProperty>>)
+DA:43,1
+DA:44,1
+DA:45,1
+FN:47,System.Void Users.Infrastructure.Database.UserDbContext::ChangeEntityState(TEntity,Microsoft.EntityFrameworkCore.EntityState)
+FNDA:2,System.Void Users.Infrastructure.Database.UserDbContext::ChangeEntityState(TEntity,Microsoft.EntityFrameworkCore.EntityState)
+DA:48,2
+DA:49,2
+DA:50,1
+DA:51,1
+DA:52,1
+DA:53,2
+BRDA:49,12,0,1
+BRDA:49,12,1,2
+FN:12,System.Void Users.Infrastructure.Database.UserDbContext::.ctor(Microsoft.EntityFrameworkCore.DbContextOptions`1<Users.Infrastructure.Database.UserDbContext>)
+FNDA:129,System.Void Users.Infrastructure.Database.UserDbContext::.ctor(Microsoft.EntityFrameworkCore.DbContextOptions`1<Users.Infrastructure.Database.UserDbContext>)
+DA:13,129
+FN:57,System.Boolean Users.Infrastructure.Database.UserDbContext/<>c::<SaveChangesAsync>b__16_0(Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry`1<Users.Domain.Entities.User>)
+FNDA:11,System.Boolean Users.Infrastructure.Database.UserDbContext/<>c::<SaveChangesAsync>b__16_0(Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry`1<Users.Domain.Entities.User>)
+DA:58,11
+BRDA:58,7,0,1
+BRDA:58,7,1,3
+FN:85,System.Boolean Users.Infrastructure.Database.UserDbContext/<>c__DisplayClass17_0::<SaveChangesAsync>b__0(Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry)
+FNDA:13,System.Boolean Users.Infrastructure.Database.UserDbContext/<>c__DisplayClass17_0::<SaveChangesAsync>b__0(Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry)
+DA:86,13
+BRDA:86,29,0,4
+BRDA:86,29,1,0
+FN:55,System.Void Users.Infrastructure.Database.UserDbContext/<SaveChangesAsync>d__16::MoveNext()
+FNDA:7,System.Void Users.Infrastructure.Database.UserDbContext/<SaveChangesAsync>d__16::MoveNext()
+DA:56,7
+DA:57,7
+DA:60,29
+DA:61,4
+DA:62,4
+DA:63,3
+DA:64,3
+DA:65,3
+DA:66,3
+DA:68,4
+DA:69,1
+DA:70,1
+DA:71,1
+DA:72,1
+DA:73,1
+DA:74,1
+DA:75,1
+DA:76,4
+DA:78,7
+DA:79,7
+BRDA:60,443,1,4
+BRDA:62,133,0,3
+BRDA:62,133,1,4
+BRDA:68,202,0,1
+BRDA:68,202,1,4
+BRDA:60,443,0,7
+FN:80,System.Void Users.Infrastructure.Database.UserDbContext/<SaveChangesAsync>d__17::MoveNext()
+FNDA:4,System.Void Users.Infrastructure.Database.UserDbContext/<SaveChangesAsync>d__17::MoveNext()
+DA:81,4
+DA:82,4
+DA:84,4
+DA:85,4
+DA:88,4
+DA:90,20
+DA:91,4
+DA:92,4
+DA:94,4
+DA:95,3
+DA:96,3
+DA:97,3
+DA:98,3
+DA:99,3
+DA:100,3
+DA:102,4
+DA:103,1
+DA:104,1
+DA:105,1
+DA:106,1
+DA:107,1
+DA:108,1
+DA:109,4
+DA:111,4
+DA:112,4
+BRDA:90,674,1,4
+BRDA:94,195,0,3
+BRDA:94,195,1,4
+BRDA:102,428,0,1
+BRDA:102,428,1,4
+BRDA:90,674,0,4
+FN:113,System.Void Users.Infrastructure.Database.UserDbContext/<SaveEfContextChanges>d__18::MoveNext()
+FNDA:1,System.Void Users.Infrastructure.Database.UserDbContext/<SaveEfContextChanges>d__18::MoveNext()
+DA:114,1
+DA:115,1
+DA:116,1
+FN:121,System.Void Users.Infrastructure.Database.UserDbContext/<SaveEfContextChanges>d__19::MoveNext()
+FNDA:1,System.Void Users.Infrastructure.Database.UserDbContext/<SaveEfContextChanges>d__19::MoveNext()
+DA:122,1
+DA:123,1
+DA:124,1
+LF:75
+LH:75
+BRF:18
+BRH:17
+FNF:15
+FNH:15
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Infrastructure\Database\UserDbContextTransactionProxy.cs
+FN:19,System.Void Users.Infrastructure.Database.UserDbContextTransactionProxy::Commit()
+FNDA:1,System.Void Users.Infrastructure.Database.UserDbContextTransactionProxy::Commit()
+DA:20,1
+DA:21,1
+DA:22,1
+FN:24,System.Void Users.Infrastructure.Database.UserDbContextTransactionProxy::Rollback()
+FNDA:1,System.Void Users.Infrastructure.Database.UserDbContextTransactionProxy::Rollback()
+DA:25,1
+DA:26,1
+DA:27,1
+FN:29,System.Void Users.Infrastructure.Database.UserDbContextTransactionProxy::Dispose()
+FNDA:3,System.Void Users.Infrastructure.Database.UserDbContextTransactionProxy::Dispose()
+DA:30,3
+DA:31,3
+DA:32,3
+DA:33,3
+FN:35,System.Void Users.Infrastructure.Database.UserDbContextTransactionProxy::Dispose(System.Boolean)
+FNDA:3,System.Void Users.Infrastructure.Database.UserDbContextTransactionProxy::Dispose(System.Boolean)
+DA:36,3
+DA:37,3
+DA:38,2
+DA:39,2
+DA:40,2
+DA:41,2
+DA:42,2
+DA:44,2
+DA:45,2
+DA:46,3
+BRDA:37,12,0,2
+BRDA:39,18,0,2
+BRDA:39,18,1,2
+BRDA:37,12,1,3
+FN:13,System.Void Users.Infrastructure.Database.UserDbContextTransactionProxy::.ctor(Microsoft.EntityFrameworkCore.DbContext)
+FNDA:6,System.Void Users.Infrastructure.Database.UserDbContextTransactionProxy::.ctor(Microsoft.EntityFrameworkCore.DbContext)
+DA:14,6
+DA:15,6
+DA:16,6
+DA:17,6
+LF:24
+LH:24
+BRF:4
+BRH:4
+FNF:5
+FNH:5
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Infrastructure\Database\Configurations\RoleConfiguration.cs
+FN:9,System.Void Users.Infrastructure.Database.Configurations.UserRoleConfiguration::Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder`1<Users.Domain.Entities.UserRole>)
+FNDA:2,System.Void Users.Infrastructure.Database.Configurations.UserRoleConfiguration::Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder`1<Users.Domain.Entities.UserRole>)
+DA:10,2
+DA:11,2
+DA:12,2
+DA:13,2
+DA:14,2
+DA:16,2
+DA:17,2
+DA:18,2
+DA:20,2
+DA:21,2
+DA:22,2
+DA:23,2
+DA:24,2
+DA:25,2
+LF:14
+LH:14
+BRF:0
+BRH:0
+FNF:1
+FNH:1
+end_of_record
+SF:C:\Prueba_Vscode\Users\Users.Infrastructure\Database\Configurations\UserConfiguration.cs
+FN:9,System.Void Users.Infrastructure.Database.Configurations.UserConfiguration::Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder`1<Users.Domain.Entities.User>)
+FNDA:2,System.Void Users.Infrastructure.Database.Configurations.UserConfiguration::Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder`1<Users.Domain.Entities.User>)
+DA:10,2
+DA:11,2
+DA:12,2
+DA:13,2
+DA:14,2
+DA:15,2
+DA:16,2
+DA:17,2
+DA:19,2
+DA:20,2
+DA:21,2
+DA:22,2
+DA:23,2
+LF:13
+LH:13
+BRF:0
+BRH:0
+FNF:1
+FNH:1
+end_of_record

@@ -6,6 +6,7 @@ using Users.Infrastructure.EventBus.Events;
 using Users.Infrastructure.EventBus;
 using Users.Infrastructure.EventBus.Consumers;
 using Users.Infrastructure.Settings;
+using Users.Infrastructure.Exceptions;
 using Users.Application.Handlers.Commands;
 using Users.Application.Handlers.Queries;
 using MediatR;
@@ -27,11 +28,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddControllers();
+
 builder.Services.AddHttpClient();
 builder.Services.AddSwaggerConfiguration();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer( options =>
+    .AddJwtBearer(options =>
     {
         options.RequireHttpsMetadata = false;
         options.Audience = "public-client";
@@ -49,30 +51,32 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         {
             OnAuthenticationFailed = context =>
             {
-            Console.WriteLine($"Authentication failed: {context.Exception.Message}");
-            return Task.CompletedTask;
+                var logger = context.HttpContext.RequestServices.GetRequiredService<ILogger<JwtBearerEvents>>();
+                logger.LogError(context.Exception, "Error en autenticación JWT");
+                context.Response.StatusCode = 401;
+                return Task.CompletedTask;
             },
-        OnTokenValidated = context =>
-        {
-            if (context.Principal?.Identity is ClaimsIdentity claimsIdentity)
+            OnTokenValidated = context =>
             {
-                var resourceAccess = context.Principal.FindFirst("resource_access")?.Value;
-                if (!string.IsNullOrEmpty(resourceAccess))
+                if (context.Principal?.Identity is ClaimsIdentity claimsIdentity)
                 {
-                    var resourceAccessJson = System.Text.Json.JsonDocument.Parse(resourceAccess);
-                    if (resourceAccessJson.RootElement.TryGetProperty("public-client", out var publiClientElement) &&
-                        publiClientElement.TryGetProperty("roles", out var rolesElement))
+                    var resourceAccess = context.Principal.FindFirst("resource_access")?.Value;
+                    if (!string.IsNullOrEmpty(resourceAccess))
                     {
-                        foreach (var role in rolesElement.EnumerateArray())
+                        var resourceAccessJson = System.Text.Json.JsonDocument.Parse(resourceAccess);
+                        if (resourceAccessJson.RootElement.TryGetProperty("public-client", out var publiClientElement) &&
+                            publiClientElement.TryGetProperty("roles", out var rolesElement))
                         {
-                            claimsIdentity.AddClaim(new Claim(ClaimTypes.Role, role.GetString()));
+                            foreach (var role in rolesElement.EnumerateArray())
+                            {
+                                claimsIdentity.AddClaim(new Claim(ClaimTypes.Role, role.GetString()));
+                            }
                         }
                     }
                 }
+                return Task.CompletedTask;
             }
-            return Task.CompletedTask;
-        }
-        };    
+        };
     });
 
 
@@ -92,12 +96,26 @@ BsonSerializer.RegisterSerializer(new GuidSerializer(GuidRepresentation.Standard
 builder.Services.AddDbContext<UserDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("PostgresConnectionUser")));
 
-builder.Services.AddSingleton<IMongoClient>(sp =>  
-    new MongoClient(builder.Configuration["MongoDbSettings:ConnectionString"]));
-
 builder.Services.Configure<MongoDBSettings>(builder.Configuration.GetSection("MongoDbSettings"));
-
 builder.Services.Configure<RabbitMQSetting>(builder.Configuration.GetSection("RabbitMQ"));
+
+builder.Services.AddSingleton<IMongoClient>(sp =>
+{
+    try
+    {
+        var client = new MongoClient(builder.Configuration["MongoDbSettings:ConnectionString"]);
+        var logger = sp.GetRequiredService<ILogger<MongoClient>>();
+        logger.LogInformation("Conexión exitosa a MongoDB");
+        return client;
+    }
+    catch (Exception ex)
+    {
+        var logger = sp.GetRequiredService<ILogger<MongoClient>>();
+        logger.LogError(ex, "Error al conectar con MongoDB");
+        throw new KeycloakException("Error al conectar con MongoDB", ex);
+    }
+});
+
 builder.Services.AddSingleton<Task<IConnection>>(async sp =>
 {
     var rabbitSettings = sp.GetRequiredService<IOptions<RabbitMQSetting>>().Value;
@@ -107,14 +125,19 @@ builder.Services.AddSingleton<Task<IConnection>>(async sp =>
         UserName = rabbitSettings.UserName,
         Password = rabbitSettings.Password
     };
+    
     try
     {
-        return await factory.CreateConnectionAsync();
+        var connection = await factory.CreateConnectionAsync();
+        var logger = sp.GetRequiredService<ILogger<ConnectionFactory>>();
+        logger.LogInformation("Conexión exitosa a RabbitMQ");
+        return connection;
     }
     catch (Exception ex)
     {
-        Console.WriteLine($"Error creating RabbitMQ connection: {ex.Message}");
-        throw;
+        var logger = sp.GetRequiredService<ILogger<ConnectionFactory>>();
+        logger.LogError(ex, "Error al conectar con RabbitMQ");
+        throw new KeycloakException("Error al conectar con RabbitMQ", ex);
     }
 });
 
@@ -124,6 +147,7 @@ builder.Services.AddSingleton<IConnection>(sp => sp.GetRequiredService<Task<ICon
 builder.Services.AddScoped<IUserReadRepository, UserReadRepository>();
 builder.Services.AddScoped<IUserWriteRepository, UserWriteRepository>();
 builder.Services.AddScoped<IKeycloakRepository, KeycloakRepository>();
+builder.Services.AddSingleton<IRabbitMQChannelFactory, RabbitMQChannelFactory>();
 builder.Services.AddSingleton<IEventBus, RabbitMQPublisher>();
 builder.Services.AddSingleton<CreateUserConsumer>();
 builder.Services.AddSingleton<DeletedUserConsumer>();
@@ -150,7 +174,6 @@ await createUserConsumer.Start(rabbitMqConnection);
 await deletedUserConsumer.Start(rabbitMqConnection);
 await updatedUserConsumer.Start(rabbitMqConnection);
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();   

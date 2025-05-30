@@ -1,57 +1,62 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Options;
+using System.Threading;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
 using Users.Core.Events;
+using Microsoft.Extensions.Logging;
 
 namespace Users.Infrastructure.EventBus
 {
     public class RabbitMQPublisher : IEventBus
     {
-        private readonly RabbitMQSetting _rabbitMQSetting;
+        private readonly IRabbitMQChannelFactory _channelFactory;
+        private readonly ILogger<RabbitMQPublisher> _logger; 
 
-        public RabbitMQPublisher(IOptions<RabbitMQSetting> rabbitMqSetting)
+        public RabbitMQPublisher(IRabbitMQChannelFactory channelFactory, ILogger<RabbitMQPublisher> logger)
         {
-            _rabbitMQSetting = rabbitMqSetting.Value;
+            _channelFactory = channelFactory ?? throw new ArgumentNullException(nameof(channelFactory));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger)); 
         }
 
-        public async Task Publish<T>(T message, string queueName)
+        public async Task Publish<T>(T message, string queueName, CancellationToken cancellationToken = default)
         {
-            try 
-            {
-             var factory = new ConnectionFactory
-            {
-                HostName = _rabbitMQSetting.HostName,
-                UserName = _rabbitMQSetting.UserName,
-                Password = _rabbitMQSetting.Password
-            };
-            Console.WriteLine($"Publishing message to RabbitMQ: {queueName}");
-            using var connection = await factory.CreateConnectionAsync();
-            using var channel = await connection.CreateChannelAsync();
-
-            channel.QueueDeclareAsync(queue: queueName, durable: true, exclusive: false, autoDelete: false, arguments: null);
-
-            var messageJson = JsonConvert.SerializeObject(message);
-            var body = Encoding.UTF8.GetBytes(messageJson);
+            if (message == null) throw new ArgumentNullException(nameof(message));
+            if (string.IsNullOrEmpty(queueName)) throw new ArgumentNullException(nameof(queueName));
             
-            await channel.BasicPublishAsync(
-                exchange: "",
-                routingKey: queueName,
-                body: body,
-                mandatory: false,
-                cancellationToken: System.Threading.CancellationToken.None);
+            try
+            {
+                using var channel = await _channelFactory.CreateChannelAsync(cancellationToken);
+
+                await channel.QueueDeclareAsync(
+                    queue: queueName,
+                    durable: true,
+                    exclusive: false,
+                    autoDelete: false,
+                    arguments: null,
+                    cancellationToken: cancellationToken);
+
+                var messageJson = JsonConvert.SerializeObject(message);
+                var body = Encoding.UTF8.GetBytes(messageJson);
+                await channel.BasicPublishAsync(
+                    exchange: "",
+                    routingKey: queueName, 
+                    mandatory: false,
+                    basicProperties: new BasicProperties(),
+                    body: body,
+                    cancellationToken: cancellationToken);
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error publishing message to RabbitMQ:{queueName} {ex.Message}");
+                _logger.LogError(ex, "Error al publicar mensaje en RabbitMQ para la cola {QueueName}", queueName);
                 throw;
             }
+        }
 
+        async Task IEventBus.Publish<T>(T message, string queueName)
+        {
+            await Publish(message, queueName, CancellationToken.None);
         }
     }
-
 }

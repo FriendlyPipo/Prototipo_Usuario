@@ -20,7 +20,7 @@ namespace Users.Infrastructure.Database
             _database = client.GetDatabase(settings.DatabaseName);
         }
 
-        public IMongoCollection<MongoUserDocument> User => _database.GetCollection<MongoUserDocument>("User");
-        public IMongoCollection<MongoRoleDocument> Role => _database.GetCollection<MongoRoleDocument>("Role");
+        public virtual IMongoCollection<MongoUserDocument> User => _database.GetCollection<MongoUserDocument>("User");
+        public virtual IMongoCollection<MongoRoleDocument> Role => _database.GetCollection<MongoRoleDocument>("Role");
     }
 }
