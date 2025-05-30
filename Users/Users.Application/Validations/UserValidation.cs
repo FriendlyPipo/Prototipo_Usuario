@@ -29,7 +29,10 @@ namespace Users.Application.UserValidations
                 .Length(3, 100).WithMessage("La dirección debe tener entre 3 y 100 caracteres.");
 
             RuleFor(x => x.UserRole)
+                .NotEmpty().WithMessage("El rol es requerido.")
+                .Must(role => role == "Postor" || role == "Subastador" || role == "Administrador" || role == "Soporte");
                 .NotEmpty().WithMessage("El rol es requerido.");
+
         }
          public virtual async Task<bool> ValidateRequest(CreateUserDTO request)
         {
