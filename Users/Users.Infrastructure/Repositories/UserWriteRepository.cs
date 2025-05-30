@@ -7,6 +7,7 @@ namespace Users.Infrastructure.Repositories
 {
     public class UserWriteRepository : IUserWriteRepository
     {
+        
         private readonly UserDbContext _dbContext;
 
         public UserWriteRepository(UserDbContext dbContext)

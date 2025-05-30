@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <DataCollectionRunSettings>
+    <DataCollectors>
+      <DataCollector friendlyName="XPlat Code Coverage">
+        <Configuration>
+          <Format>lcov</Format>
+          <Include>[Users.Domain]*,[Users.Application]*,[Users.Core]*,[Users.Api]*,[Users.Infrastructure]*</Include>
+          <Exclude>[*Test*]*,[*Tests*]*,[*.Test]*,[xunit.*]*,[Moq*]*,[Microsoft.*]*</Exclude>
+          <ExcludeByFile>**/*AssemblyInfo.cs,**/*Program.cs,**/*Startup.cs, **/*SwaggerConfiguration.cs</ExcludeByFile>
+          <SingleHit>false</SingleHit>
+          <UseSourceLink>false</UseSourceLink> </Configuration>
+      </DataCollector>
+    </DataCollectors>
+  </DataCollectionRunSettings>
+</RunSettings>

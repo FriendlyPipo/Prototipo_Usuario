@@ -133,26 +133,6 @@ namespace Users.Infrastructure.Repositories
             throw new KeycloakException($"Failed to update user in Keycloak. Status code: {response.StatusCode}");
         }
 
-        public async Task<string> DeleteUserAsync(string keycloakUserId, string token)
-        {
-            var url = $"{_configuration["Keycloak:BaseUrl"]}/admin/realms/{_configuration["Keycloak:Realm"]}/users/{keycloakUserId}";
-            var requestBody = new StringContent(JsonSerializer.Serialize(new { id = keycloakUserId }), Encoding.UTF8, "application/json");
-
-            using var request = new HttpRequestMessage(HttpMethod.Delete, url)
-            {
-                Content = requestBody
-            };
-
-            var response = await _httpClient.SendAsync(request);
-
-            if (response.IsSuccessStatusCode)
-            {
-                return await response.Content.ReadAsStringAsync();
-            }
-
-            throw new KeycloakException($"Failed to delete user with ID '{keycloakUserId}' in Keycloak. Status code: {response.StatusCode}");
-        }
-
         public async Task<bool> DisableUserAsync(string keycloakUserId, string token)
         {
             var url = $"{_configuration["Keycloak:BaseUrl"]}/admin/realms/{_configuration["Keycloak:Realm"]}/users/{keycloakUserId}";
