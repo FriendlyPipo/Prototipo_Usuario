@@ -1,18 +1,20 @@
 using MediatR;
-using Users.Domain.Entities;
 using Users.Application.Commands;
 using Users.Core.Repositories;
 using Users.Infrastructure.Exceptions;
+using Microsoft.Extensions.Logging;
 
 namespace Users.Application.Handlers.Commands
 {
     public class ForgotPasswordCommandHandler : IRequestHandler<ForgotPasswordCommand, string>
     {
         private readonly IKeycloakRepository _keycloakRepository; 
+        private readonly ILogger<ForgotPasswordCommandHandler> _logger;
 
-        public ForgotPasswordCommandHandler(IKeycloakRepository keycloakRepository)
+        public ForgotPasswordCommandHandler(IKeycloakRepository keycloakRepository, ILogger<ForgotPasswordCommandHandler> logger)
         {
             _keycloakRepository = keycloakRepository;
+            _logger = logger;
         }
 
         public async Task<string> Handle(ForgotPasswordCommand request, CancellationToken cancellationToken)
@@ -27,7 +29,8 @@ namespace Users.Application.Handlers.Commands
             }
             catch (Exception ex)
             {
-                Console.Error.WriteLine($"Error al solicitar envío de email de restablecimiento de contraseña a Keycloak para usuario {keycloakId}: {ex.Message}");
+                _logger.LogError(ex, "Error al solicitar envío de email de de contraseña");
+                throw new KeycloakException("Error al envíar email de restablecimiento de contraseña", ex);
             }
 
             return "Recibirás un enlace para restablecer tu contraseña.";
